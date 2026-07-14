@@ -6,73 +6,54 @@
     <title>LogsPanelSuite</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            background: #0a0f1c;
-            color: white;
-            font-family: system-ui, -apple-system, sans-serif;
-        }
-        .hero-bg {
-            background: linear-gradient(180deg, rgba(10,15,28,0.95), rgba(10,15,28,0.98)),
-                        url('https://picsum.photos/id/1015/2000/1200') center/cover;
-        }
-        .service-card {
-            background: rgba(255,255,255,0.06);
-            transition: all 0.3s ease;
-        }
-        .service-card:hover {
-            background: rgba(255,255,255,0.12);
-            transform: scale(1.03);
-        }
+        body { background: #0a0f1c; color: white; }
+        .hero { background: linear-gradient(rgba(10,15,28,0.95), rgba(10,15,28,0.98)); }
+        .search-btn { background: #6366f1; }
+        .card { background: #111827; border-radius: 20px; }
     </style>
 </head>
-<body class="min-h-screen">
+<body>
 
     <!-- Navbar -->
-    <nav class="flex items-center justify-between px-6 py-4 border-b border-white/10">
+    <nav class="flex items-center justify-between px-8 py-6 border-b border-white/10">
         <div class="flex items-center gap-3">
-            <div class="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center text-2xl font-bold">L</div>
-            <span class="text-2xl font-semibold tracking-tight">LogsPanelSuite</span>
+            <div class="w-10 h-10 bg-indigo-600 rounded-2xl flex items-center justify-center text-3xl font-bold">L</div>
+            <span class="text-3xl font-bold">LogsPanelSuite</span>
         </div>
-        <button onclick="signInWithGoogle()" 
-                class="bg-white text-black px-6 py-2 rounded-full font-medium hover:bg-gray-200">
-            Sign in
-        </button>
     </nav>
 
     <!-- 1. Hero -->
-    <section class="hero-bg h-screen flex items-center justify-center text-center relative overflow-hidden">
-        <div class="max-w-5xl mx-auto px-6 z-10">
-            <h1 class="text-6xl md:text-7xl font-bold mb-6 leading-none">
+    <section class="hero min-h-screen flex items-center justify-center text-center px-6 pt-10">
+        <div class="max-w-5xl">
+            <h1 class="text-6xl md:text-7xl font-bold leading-none mb-8">
                 The Ultimate Panel Suite<br>for Digital Assets
             </h1>
-            <p class="text-2xl text-gray-300 mb-12">
-                Trusted by thousands of businesses worldwide.
-            </p>
+            <p class="text-2xl text-gray-300 mb-12">Trusted by thousands of businesses worldwide.</p>
 
-            <!-- Search -->
-            <div class="flex max-w-xl mx-auto mb-12">
-                <input id="search" type="text" placeholder="Search products..." 
-                       class="flex-1 bg-white/10 border border-white/30 rounded-l-2xl px-6 py-5 text-lg focus:outline-none">
-                <button class="bg-blue-600 hover:bg-blue-700 px-10 rounded-r-2xl font-semibold">Search</button>
+            <!-- Search Bar -->
+            <div class="flex max-w-2xl mx-auto mb-12 bg-zinc-900 rounded-3xl p-2">
+                <input type="text" placeholder="Search products..." 
+                       class="flex-1 bg-transparent px-8 py-6 text-lg focus:outline-none">
+                <button class="search-btn px-12 py-6 rounded-3xl font-semibold text-lg">Search</button>
             </div>
 
             <!-- Trending -->
-            <div class="mb-12">
-                <p class="text-gray-400 mb-4 text-sm tracking-widest">TRENDING:</p>
-                <div class="flex flex-wrap justify-center gap-3">
-                    <span class="bg-white/10 px-6 py-3 rounded-3xl">WhatsApp</span>
-                    <span class="bg-white/10 px-6 py-3 rounded-3xl">Telegram Premium</span>
-                    <span class="bg-white/10 px-6 py-3 rounded-3xl">US Number</span>
-                    <span class="bg-white/10 px-6 py-3 rounded-3xl">Instagram Likes</span>
+            <div class="mb-16">
+                <p class="text-gray-400 mb-6">Trending:</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <span class="bg-zinc-800 px-8 py-4 rounded-3xl">WhatsApp</span>
+                    <span class="bg-zinc-800 px-8 py-4 rounded-3xl">Telegram Premium</span>
+                    <span class="bg-zinc-800 px-8 py-4 rounded-3xl">US Number</span>
+                    <span class="bg-zinc-800 px-8 py-4 rounded-3xl">Instagram Likes</span>
                 </div>
             </div>
 
-            <div class="flex gap-4 justify-center">
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
                 <button onclick="signInWithGoogle()" 
-                        class="bg-blue-600 hover:bg-blue-700 px-10 py-4 rounded-2xl text-lg font-semibold">
+                        class="bg-indigo-600 hover:bg-indigo-700 text-xl px-12 py-6 rounded-3xl font-semibold">
                     Get Started Free
                 </button>
-                <button class="border border-white/40 hover:bg-white/10 px-8 py-4 rounded-2xl text-lg">
+                <button class="border border-white/40 hover:bg-white/10 text-xl px-12 py-6 rounded-3xl">
                     Explore Services
                 </button>
             </div>
@@ -80,48 +61,46 @@
     </section>
 
     <!-- 2. Market Sectors -->
-    <section class="py-20 px-6">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-5xl font-bold text-center mb-4">Explore Market Sectors</h2>
-            <p class="text-center text-gray-400 text-lg mb-16">
-                Everything you need to scale your digital presence.<br>
-                Browse our comprehensive catalog of verified assets.
-            </p>
+    <section class="px-8 py-20">
+        <h2 class="text-5xl font-bold text-center mb-4">Explore Market Sectors</h2>
+        <p class="text-center text-gray-400 max-w-2xl mx-auto mb-16">
+            Everything you need to scale your digital presence.<br>
+            Browse our comprehensive catalog of verified assets.
+        </p>
 
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="service-card p-8 rounded-3xl text-center">
-                    <div class="w-20 h-20 mx-auto bg-orange-600/20 rounded-2xl flex items-center justify-center text-5xl mb-6">👥</div>
-                    <h3 class="text-2xl font-semibold">Social Accounts</h3>
-                    <p class="text-blue-400 mt-2">Browse Collection →</p>
-                </div>
-                <div class="service-card p-8 rounded-3xl text-center">
-                    <div class="w-20 h-20 mx-auto bg-blue-600/20 rounded-2xl flex items-center justify-center text-5xl mb-6">📞</div>
-                    <h3 class="text-2xl font-semibold">Virtual Numbers</h3>
-                    <p class="text-blue-400 mt-2">Browse Collection →</p>
-                </div>
-                <div class="service-card p-8 rounded-3xl text-center">
-                    <div class="w-20 h-20 mx-auto bg-purple-600/20 rounded-2xl flex items-center justify-center text-5xl mb-6">📊</div>
-                    <h3 class="text-2xl font-semibold">SMM Orders</h3>
-                    <p class="text-blue-400 mt-2">Browse Collection →</p>
-                </div>
-                <div class="service-card p-8 rounded-3xl text-center">
-                    <div class="w-20 h-20 mx-auto bg-cyan-600/20 rounded-2xl flex items-center justify-center text-5xl mb-6">💻</div>
-                    <h3 class="text-2xl font-semibold">Software Logs</h3>
-                    <p class="text-blue-400 mt-2">Browse Collection →</p>
-                </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            <div class="card p-8 text-center">
+                <div class="w-16 h-16 mx-auto bg-orange-500/20 rounded-2xl flex items-center justify-center text-5xl mb-6">👥</div>
+                <h3 class="text-2xl font-semibold">Social Accounts</h3>
+                <p class="text-indigo-400 mt-3">Browse Collection</p>
+            </div>
+            <div class="card p-8 text-center">
+                <div class="w-16 h-16 mx-auto bg-blue-500/20 rounded-2xl flex items-center justify-center text-5xl mb-6">📱</div>
+                <h3 class="text-2xl font-semibold">Virtual Numbers</h3>
+                <p class="text-indigo-400 mt-3">Browse Collection</p>
+            </div>
+            <div class="card p-8 text-center">
+                <div class="w-16 h-16 mx-auto bg-purple-500/20 rounded-2xl flex items-center justify-center text-5xl mb-6">📈</div>
+                <h3 class="text-2xl font-semibold">SMM Orders</h3>
+                <p class="text-indigo-400 mt-3">Browse Collection</p>
+            </div>
+            <div class="card p-8 text-center">
+                <div class="w-16 h-16 mx-auto bg-cyan-500/20 rounded-2xl flex items-center justify-center text-5xl mb-6">💻</div>
+                <h3 class="text-2xl font-semibold">Software Logs</h3>
+                <p class="text-indigo-400 mt-3">Browse Collection</p>
             </div>
         </div>
     </section>
 
     <!-- 3. Ready to get started -->
-    <section class="py-24 px-6 bg-gradient-to-b from-transparent via-blue-950/50 to-transparent">
-        <div class="max-w-2xl mx-auto bg-gradient-to-br from-indigo-900 to-purple-900 rounded-3xl p-16 text-center">
-            <h2 class="text-5xl font-bold mb-6">Ready to get started?</h2>
-            <p class="text-xl text-gray-200 mb-10">
+    <section class="px-8 py-20">
+        <div class="bg-gradient-to-br from-indigo-800 to-purple-800 rounded-3xl p-16 text-center max-w-3xl mx-auto">
+            <h2 class="text-5xl font-bold mb-8">Ready to get started?</h2>
+            <p class="text-xl text-gray-200 mb-12">
                 Join thousands of users leveraging our platform for secure verification and growth.
             </p>
             <button onclick="signInWithGoogle()" 
-                    class="bg-black text-white px-16 py-5 rounded-2xl text-xl font-semibold hover:bg-gray-900">
+                    class="bg-black text-white px-16 py-6 rounded-3xl text-2xl font-semibold">
                 Get Started →
             </button>
         </div>
@@ -146,9 +125,7 @@
         const provider = new GoogleAuthProvider();
 
         window.signInWithGoogle = () => {
-            signInWithPopup(auth, provider)
-                .then(r => alert(`✅ Signed in as ${r.user.displayName}`))
-                .catch(e => alert("Error: " + e.message));
+            signInWithPopup(auth, provider).then(() => alert("✅ Signed in successfully!"));
         };
     </script>
 </body>
