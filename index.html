@@ -11,143 +11,169 @@
       background: #0a0a0f;
       color: #fff;
       line-height: 1.5;
-      background-image: radial-gradient(circle at 50% 30%, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+      background-image: radial-gradient(circle at 50% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 60%);
     }
-
     .nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 24px;
+      padding: 18px 24px;
     }
-    .logo { font-size: 1.65rem; font-weight: 700; }
-    .logo span { color: #6366f1; }
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 1.55rem;
+      font-weight: 700;
+    }
+    .logo::before {
+      content: "L";
+      background: #6366f1;
+      color: white;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 8px;
+      font-size: 1.1rem;
+    }
 
+    /* Hero */
     .hero {
       text-align: center;
-      padding: 60px 20px 50px;
+      padding: 40px 20px 60px;
     }
     .hero h1 {
-      font-size: 2.75rem;
-      line-height: 1.1;
-      margin-bottom: 16px;
+      font-size: 2.7rem;
+      line-height: 1.05;
+      margin-bottom: 14px;
     }
     .subtitle {
-      font-size: 1.18rem;
+      font-size: 1.15rem;
       opacity: 0.85;
-      margin-bottom: 40px;
+      margin-bottom: 35px;
     }
-
     .search-bar {
       display: flex;
       max-width: 520px;
-      margin: 0 auto 40px;
+      margin: 0 auto 35px;
       background: #1f2937;
       border-radius: 9999px;
       overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     }
     .search-bar input {
       flex: 1;
-      padding: 16px 24px;
+      padding: 15px 20px;
       border: none;
       background: transparent;
       color: white;
-      font-size: 1.1rem;
     }
     .search-bar button {
       background: #6366f1;
-      border: none;
       color: white;
-      padding: 0 36px;
+      padding: 0 32px;
+      border: none;
       font-weight: 600;
     }
 
-    .trending { margin-bottom: 50px; }
+    .trending {
+      margin-bottom: 45px;
+    }
     .tags {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 10px;
-      margin-top: 12px;
+      gap: 8px;
     }
     .tag {
       background: #1f2937;
-      padding: 9px 22px;
+      padding: 8px 18px;
       border-radius: 50px;
-      font-size: 0.97rem;
+      font-size: 0.95rem;
     }
 
     .actions {
       display: flex;
       justify-content: center;
-      gap: 16px;
+      gap: 14px;
       flex-wrap: wrap;
+    }
+    .btn {
+      padding: 14px 32px;
+      border-radius: 9999px;
+      font-size: 1.05rem;
+      cursor: pointer;
     }
     .btn-primary {
       background: #6366f1;
       color: white;
-      padding: 15px 34px;
       border: none;
-      border-radius: 9999px;
-      font-size: 1.1rem;
-      cursor: pointer;
     }
     .btn-secondary {
       background: transparent;
       color: white;
-      padding: 14px 34px;
       border: 2px solid #6366f1;
-      border-radius: 9999px;
     }
 
+    /* Sectors */
     .sectors {
-      padding: 70px 20px 60px;
+      padding: 60px 20px;
       background: #111118;
     }
-    .sectors h2 { text-align: center; font-size: 2.3rem; margin-bottom: 12px; }
+    .sectors h2 {
+      text-align: center;
+      font-size: 2.25rem;
+      margin-bottom: 10px;
+    }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 18px;
+      max-width: 1100px;
+      margin: 40px auto 0;
     }
     .card {
       background: #1a1a24;
-      padding: 32px 20px;
+      padding: 28px 20px;
       border-radius: 16px;
       text-align: center;
-      transition: transform 0.2s;
     }
-    .card:hover { transform: translateY(-6px); }
-    .card .icon { font-size: 3rem; margin-bottom: 18px; }
+    .card .icon {
+      font-size: 2.6rem;
+      margin-bottom: 14px;
+    }
 
+    /* Ready */
     .ready {
-      padding: 90px 20px;
+      padding: 80px 20px;
       text-align: center;
       background: linear-gradient(135deg, #4f46e5, #7c3aed);
     }
-    .ready h2 { font-size: 2.4rem; margin-bottom: 20px; }
+    .ready h2 {
+      font-size: 2.3rem;
+      margin-bottom: 18px;
+    }
 
+    /* Footer */
     footer {
-      padding: 70px 20px 50px;
-      background: #0a0a0f;
+      padding: 60px 20px 40px;
     }
     .section-title {
       color: #a5b4fc;
-      margin: 35px 0 15px;
-      font-size: 1.05rem;
-      font-weight: 600;
+      margin: 30px 0 12px;
+      font-size: 1.1rem;
     }
-    ul { list-style: none; }
-    ul li { padding: 9px 0; opacity: 0.9; }
+    ul li {
+      padding: 8px 0;
+      opacity: 0.9;
+    }
   </style>
 </head>
 <body>
 
   <nav class="nav">
-    <div class="logo">L <span>LogsPanelSuite</span></div>
+    <div class="logo">LogsPanelSuite</div>
     <div>☰</div>
   </nav>
 
@@ -171,14 +197,14 @@
     </div>
 
     <div class="actions">
-      <button class="btn-primary" onclick="showLogin()">Get Started Free</button>
-      <button class="btn-secondary">Explore Services</button>
+      <button class="btn btn-primary" onclick="showLogin()">Get Started Free</button>
+      <button class="btn btn-secondary">Explore Services</button>
     </div>
   </section>
 
   <section class="sectors">
     <h2>Explore Market Sectors</h2>
-    <p style="text-align:center; max-width:720px; margin:0 auto 50px; opacity:0.85;">
+    <p style="text-align:center; max-width:680px; margin:0 auto 40px; opacity:0.85;">
       Everything you need to scale your digital presence.<br>
       Browse our comprehensive catalog of verified assets.
     </p>
@@ -199,11 +225,11 @@
     <h2>Ready to get started?</h2>
     <p>Join thousands of users leveraging our platform for secure verification and growth.</p>
     <br><br>
-    <button class="btn-primary" style="background:#000; padding:16px 48px; font-size:1.15rem;" onclick="showLogin()">Get Started →</button>
+    <button class="btn btn-primary" style="background:#000; padding:16px 44px;" onclick="showLogin()">Get Started →</button>
   </section>
 
   <footer>
-    <div style="font-size:1.5rem; margin-bottom:12px;">L LogsPanelSuite</div>
+    <div style="font-size:1.55rem; margin-bottom:12px;">LogsPanelSuite</div>
     <p>Your trusted platform for virtual numbers and social media marketing services.</p>
 
     <div class="section-title">SERVICES</div>
@@ -252,11 +278,11 @@
     const auth = getAuth(app);
 
     onAuthStateChanged(auth, (user) => {
-      if (user) console.log("Logged in:", user.email);
+      if (user) console.log("Logged in as:", user.email);
     });
 
     window.showLogin = () => {
-      alert("Login feature is ready to be built with Firebase Auth.\n\nLet me know if you want the login form now.");
+      alert("Login system is ready with Firebase.\nTell me if you want a full login form.");
     };
   </script>
 </body>
