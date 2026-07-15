@@ -438,6 +438,7 @@ window.signInUser = signInUser;
   }
 
 }
+window.googleLogin = googleLogin;
 async function handleForgotPassword() {
 
   const email = document.getElementById("email").value.trim();
@@ -455,7 +456,12 @@ async function handleForgotPassword() {
 
     document.getElementById("loading").classList.add("hidden");
 
-    alert("Password reset link has been sent to your email.");
+    alert(
+      "A password reset link has been sent to your email.\n\n" +
+      "If you don't see it in your inbox, please check your Spam or Junk folder.\n\n" +
+      "If you find the email in Spam, mark it as 'Not Spam' so future emails from LogsPanelSuite will arrive in your inbox.\n\n" +
+      "Then open the email and tap the password reset link."
+    );
 
   } catch (error) {
 
@@ -468,7 +474,6 @@ async function handleForgotPassword() {
 }
 
 window.handleForgotPassword = handleForgotPassword;
-window.googleLogin = googleLogin;
 </script>
 
 </body>
