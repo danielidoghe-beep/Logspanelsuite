@@ -190,7 +190,9 @@ class="absolute right-4 top-4 text-gray-500">
 onclick="loadingRedirect('forgot-password.html')"
 class="text-[#6366f1] font-medium">
 
+<a href="#" onclick="resetPassword()" class="text-[#6366f1] font-medium">
 Forgot Password?
+</a>
 
 </a>
 
@@ -488,7 +490,134 @@ eye.className="fa-solid fa-eye";
 }
 
 };
+// EMAIL & PASSWORD LOGIN
 
+window.signInUser = async function () {
+
+const email = document.getElementById("email").value.trim();
+
+const password = document.getElementById("password").value;
+
+if(email === "" || password === ""){
+
+alert("Please enter your email and password.");
+
+return;
+
+}
+
+showLoading(async ()=>{
+
+try{
+
+await signInWithEmailAndPassword(auth,email,password);
+
+window.location.href="dashboard.html";
+
+}catch(error){
+
+let message="Login failed.";
+
+switch(error.code){
+
+case "auth/user-not-found":
+message="Account not found.";
+break;
+
+case "auth/wrong-password":
+message="Incorrect password.";
+break;
+
+case "auth/invalid-email":
+message="Invalid email address.";
+break;
+
+case "auth/invalid-credential":
+message="Invalid email or password.";
+break;
+
+case "auth/too-many-requests":
+message="Too many attempts. Try again later.";
+break;
+
+default:
+message=error.message;
+
+}
+
+alert(message);
+
+}
+
+});
+
+};
+
+// GOOGLE LOGIN
+
+window.googleLogin = async function(){
+
+showLoading(async ()=>{
+
+try{
+
+await signInWithPopup(auth,provider);
+
+window.location.href="dashboard.html";
+
+}catch(error){
+
+alert(error.message);
+
+}
+
+});
+
+};
+
+// FORGOT PASSWORD
+
+window.resetPassword = async function(){
+
+const email=document.getElementById("email").value.trim();
+
+if(email===""){
+
+alert("Enter your email first.");
+
+return;
+
+}
+
+showLoading(async()=>{
+
+try{
+
+await sendPasswordResetEmail(auth,email);
+
+alert("Password reset email sent.");
+
+}catch(error){
+
+alert(error.message);
+
+}
+
+});
+
+};
+
+// AUTO LOGIN
+
+onAuthStateChanged(auth,(user)=>{
+
+if(user){
+
+console.log("Logged in:",user.email);
+
+}
+
+});
 </body>
 
 </html>
