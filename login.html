@@ -438,7 +438,36 @@ window.signInUser = signInUser;
   }
 
 }
+async function handleForgotPassword() {
 
+  const email = document.getElementById("email").value.trim();
+
+  if (!email) {
+    alert("Please enter your email address first.");
+    return;
+  }
+
+  showLoading();
+
+  try {
+
+    await sendPasswordResetEmail(auth, email);
+
+    document.getElementById("loading").classList.add("hidden");
+
+    alert("Password reset link has been sent to your email.");
+
+  } catch (error) {
+
+    document.getElementById("loading").classList.add("hidden");
+
+    alert(error.message);
+
+  }
+
+}
+
+window.handleForgotPassword = handleForgotPassword;
 window.googleLogin = googleLogin;
 </script>
 
