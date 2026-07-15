@@ -1,1 +1,219 @@
+/* Google Font */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
 
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#080c1d;
+color:#fff;
+overflow-x:hidden;
+}
+
+/* ================= NAVBAR ================= */
+
+.header{
+width:100%;
+background:#0b1023;
+border-bottom:1px solid rgba(255,255,255,.08);
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.navbar{
+max-width:1200px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:18px 22px;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.logo img{
+width:42px;
+height:42px;
+border-radius:50%;
+}
+
+.logo h2{
+font-size:30px;
+font-weight:700;
+color:#fff;
+}
+
+.logo span{
+color:#6d63ff;
+}
+
+.menu-btn{
+width:55px;
+height:55px;
+border:1px solid rgba(255,255,255,.12);
+border-radius:15px;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:22px;
+cursor:pointer;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+padding:80px 20px;
+text-align:center;
+background:
+radial-gradient(circle at top,#1d2355 0%,#080c1d 70%);
+}
+
+.hero h1{
+font-size:56px;
+font-weight:800;
+line-height:1.2;
+max-width:900px;
+margin:auto;
+}
+
+.hero h1 span{
+color:#6d63ff;
+}
+
+.hero p{
+margin-top:25px;
+font-size:20px;
+color:#b6b9d7;
+}
+
+.search-box{
+margin:45px auto;
+display:flex;
+max-width:700px;
+gap:15px;
+}
+
+.search-box input{
+flex:1;
+padding:18px 20px;
+border-radius:16px;
+background:#11172a;
+border:1px solid #232941;
+color:white;
+font-size:17px;
+outline:none;
+}
+
+.search-box button{
+padding:18px 35px;
+border:none;
+border-radius:16px;
+background:#6d63ff;
+color:white;
+font-weight:700;
+font-size:17px;
+cursor:pointer;
+}
+
+.trending{
+margin-top:25px;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.trending p{
+margin:0;
+font-size:15px;
+color:#aaa;
+}
+
+.trending span{
+padding:12px 18px;
+border-radius:50px;
+background:#121827;
+border:1px solid rgba(255,255,255,.08);
+font-size:14px;
+}
+
+.hero-buttons{
+margin-top:40px;
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.btn-primary{
+padding:18px 40px;
+background:#6d63ff;
+border-radius:16px;
+text-decoration:none;
+color:white;
+font-weight:700;
+}
+
+.btn-secondary{
+padding:18px 40px;
+border:1px solid rgba(255,255,255,.15);
+border-radius:16px;
+text-decoration:none;
+color:white;
+}
+
+/* ================= BRANDS ================= */
+
+.brands{
+display:flex;
+overflow:auto;
+gap:18px;
+padding:20px;
+background:#10162b;
+}
+
+.brands div{
+min-width:170px;
+padding:18px;
+background:#181e33;
+border-radius:50px;
+text-align:center;
+border:1px solid rgba(255,255,255,.08);
+}
+
+/* ================= MARKET ================= */
+
+.market{
+padding:90px 20px;
+text-align:center;
+}
+
+.market h5{
+color:#6d63ff;
+letter-spacing:3px;
+margin-bottom:10px;
+}
+
+.market h2{
+font-size:46px;
+margin-bottom:15px;
+}
+
+.market p{
+max-width:650px;
+margin:auto;
+color:#b8bdd5;
+line-height:1.8;
+}
