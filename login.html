@@ -412,7 +412,82 @@ alert("Google Sign-In will be connected in Part 2.");
 
 }
 
-</script>
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+
+import {
+getAuth,
+signInWithEmailAndPassword,
+GoogleAuthProvider,
+signInWithPopup,
+sendPasswordResetEmail,
+onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
+
+const firebaseConfig = {
+apiKey: "AIzaSyA53ORM49_ecEyokNloQquC2XfCYwuUFfI",
+authDomain: "logspanelsuite.firebaseapp.com",
+projectId: "logspanelsuite",
+storageBucket: "logspanelsuite.firebasestorage.app",
+messagingSenderId: "927578504424",
+appId: "1:927578504424:web:bc2d8e9ea4e805ca669d5d",
+measurementId: "G-1N2G89RHD3"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+
+window.toggleMenu = function () {
+document.getElementById("mobileMenu").classList.toggle("open");
+};
+
+window.showLoading = function(callback){
+
+const loading=document.getElementById("loading");
+
+loading.classList.remove("hidden");
+
+setTimeout(()=>{
+
+loading.classList.add("hidden");
+
+if(callback) callback();
+
+},1500);
+
+};
+
+window.loadingRedirect=function(page){
+
+showLoading(()=>{
+
+window.location.href=page;
+
+});
+
+};
+
+window.togglePassword=function(){
+
+const pass=document.getElementById("password");
+
+const eye=document.getElementById("eyeIcon");
+
+if(pass.type==="password"){
+
+pass.type="text";
+eye.className="fa-solid fa-eye-slash";
+
+}else{
+
+pass.type="password";
+eye.className="fa-solid fa-eye";
+
+}
+
+};
 
 </body>
 
