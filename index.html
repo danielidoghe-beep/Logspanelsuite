@@ -179,10 +179,11 @@
     </div>
   </footer>
 
-  <!-- FLOATING TELEGRAM -->
-  <div onclick="handleButtonClick()" class="fixed bottom-6 right-6 w-14 h-14 bg-[#22d3ee] rounded-full flex items-center justify-center shadow-2xl cursor-pointer">
+  <!-- FLOATING TELEGRAM - OPENS YOUR CHANNEL -->
+  <a href="https://t.me/+Xbt-w6-TwsozYjY0" target="_blank" 
+     class="fixed bottom-6 right-6 w-14 h-14 bg-[#22d3ee] rounded-full flex items-center justify-center shadow-2xl cursor-pointer hover:scale-110 transition">
     <i class="fa-brands fa-telegram text-3xl text-black"></i>
-  </div>
+  </a>
 
   <!-- LOADING OVERLAY -->
   <div id="loading" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50">
@@ -220,11 +221,10 @@
       
       setTimeout(() => {
         loading.classList.add('hidden');
-        alert("Action completed! 🎉\n\nFirebase is ready for real functionality.");
+        alert("Action completed! 🎉");
       }, 1500);
     }
 
-    // Make all buttons use the loading effect
     window.showLogin = handleButtonClick;
     window.handleButtonClick = handleButtonClick;
     window.toggleMenu = toggleMenu;
