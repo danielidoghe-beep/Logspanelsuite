@@ -6,134 +6,135 @@
   <title>LogsPanelSuite</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    body { font-family: system-ui, sans-serif; }
-  </style>
 </head>
 <body class="bg-[#0a0a0f] text-white">
 
   <!-- HEADER -->
-  <header class="flex items-center justify-between px-6 py-5 border-b border-gray-800">
-    <div class="flex items-center gap-3">
-      <div class="w-9 h-9 bg-[#6366f1] rounded-full flex items-center justify-center text-xl font-bold">L</div>
-      <span class="text-2xl font-semibold">LogsPanelSuite</span>
+  <header class="flex items-center justify-between px-5 py-4 border-b border-gray-800">
+    <div class="flex items-center gap-2.5">
+      <div class="w-8 h-8 bg-[#6366f1] rounded-full flex items-center justify-center text-lg font-bold">L</div>
+      <span class="text-xl font-semibold">LogsPanelSuite</span>
     </div>
-    <i class="fa-solid fa-bars text-3xl"></i>
+    <i class="fa-solid fa-bars text-2xl"></i>
   </header>
 
   <!-- HERO -->
-  <section class="pt-12 pb-16 px-6 text-center">
-    <h1 class="text-5xl font-bold leading-tight mb-6">
+  <section class="pt-10 pb-12 px-5 text-center">
+    <h1 class="text-4xl font-bold leading-tight mb-5">
       The Ultimate Panel Suite<br>for Digital Assets
     </h1>
-    <p class="text-gray-400 text-lg mb-10">
+    <p class="text-gray-400 text-base mb-8">
       Trusted by thousands of businesses worldwide.
     </p>
 
-    <div class="max-w-lg mx-auto flex gap-3 mb-10">
-      <input type="text" placeholder="Search products..." class="flex-1 bg-[#1f2937] rounded-3xl px-6 py-4 focus:outline-none">
-      <button class="bg-[#6366f1] px-10 rounded-3xl font-medium">Search</button>
+    <div class="max-w-md mx-auto flex gap-2 mb-8">
+      <input type="text" placeholder="Search products..." 
+             class="flex-1 bg-[#1f2937] rounded-3xl px-5 py-3 text-sm focus:outline-none">
+      <button class="bg-[#6366f1] px-8 rounded-3xl text-sm font-medium">Search</button>
     </div>
 
-    <div>
-      <p class="text-gray-400 mb-3">Trending:</p>
-      <div class="flex flex-wrap justify-center gap-3">
-        <span class="bg-[#1f2937] px-5 py-2 rounded-full text-sm">WhatsApp</span>
-        <span class="bg-[#1f2937] px-5 py-2 rounded-full text-sm">Telegram Premium</span>
-        <span class="bg-[#1f2937] px-5 py-2 rounded-full text-sm">US Number</span>
+    <div class="mb-8">
+      <p class="text-gray-400 text-sm mb-3">Trending:</p>
+      <div class="flex flex-wrap justify-center gap-2">
+        <span class="bg-[#1f2937] px-4 py-1.5 rounded-full text-xs">WhatsApp</span>
+        <span class="bg-[#1f2937] px-4 py-1.5 rounded-full text-xs">Telegram Premium</span>
+        <span class="bg-[#1f2937] px-4 py-1.5 rounded-full text-xs">US Number</span>
       </div>
+    </div>
+
+    <div class="flex justify-center gap-3">
+      <button onclick="showLogin()" class="bg-[#6366f1] px-7 py-3 rounded-3xl text-sm font-semibold">Get Started Free</button>
+      <button class="border border-gray-600 px-7 py-3 rounded-3xl text-sm font-semibold">Explore Services</button>
     </div>
   </section>
 
   <!-- MARKET SECTORS -->
-  <section class="px-6 py-16 bg-[#111827]">
-    <div class="text-center mb-12">
-      <h2 class="text-4xl font-bold mb-4">Explore Market Sectors</h2>
-      <p class="text-gray-400 max-w-2xl mx-auto">
+  <section class="px-5 py-14 bg-[#111827]">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl font-bold mb-3">Explore Market Sectors</h2>
+      <p class="text-gray-400 text-sm max-w-md mx-auto">
         Everything you need to scale your digital presence.<br>
         Browse our comprehensive catalog of verified assets.
       </p>
     </div>
 
-    <div class="grid grid-cols-2 gap-6 max-w-5xl mx-auto">
-      <div class="bg-[#1f2937] p-8 rounded-3xl text-center">
-        <i class="fa-solid fa-users text-5xl mb-6 text-orange-400"></i>
-        <h3 class="font-semibold text-xl">Social Accounts</h3>
-        <p class="text-gray-400 text-sm mt-2">Browse Collection</p>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="bg-[#1f2937] p-6 rounded-3xl text-center">
+        <i class="fa-solid fa-users text-5xl mb-5 text-orange-400"></i>
+        <h3 class="font-semibold">Social Accounts</h3>
+        <p class="text-gray-400 text-xs mt-1">Browse Collection</p>
       </div>
-      <div class="bg-[#1f2937] p-8 rounded-3xl text-center">
-        <i class="fa-solid fa-mobile-screen-button text-5xl mb-6 text-blue-400"></i>
-        <h3 class="font-semibold text-xl">Virtual Numbers</h3>
-        <p class="text-gray-400 text-sm mt-2">Browse Collection</p>
+      <div class="bg-[#1f2937] p-6 rounded-3xl text-center">
+        <i class="fa-solid fa-mobile-screen-button text-5xl mb-5 text-blue-400"></i>
+        <h3 class="font-semibold">Virtual Numbers</h3>
+        <p class="text-gray-400 text-xs mt-1">Browse Collection</p>
       </div>
-      <div class="bg-[#1f2937] p-8 rounded-3xl text-center">
-        <i class="fa-solid fa-chart-line text-5xl mb-6 text-purple-400"></i>
-        <h3 class="font-semibold text-xl">SMM Orders</h3>
-        <p class="text-gray-400 text-sm mt-2">Browse Collection</p>
+      <div class="bg-[#1f2937] p-6 rounded-3xl text-center">
+        <i class="fa-solid fa-chart-line text-5xl mb-5 text-purple-400"></i>
+        <h3 class="font-semibold">SMM Orders</h3>
+        <p class="text-gray-400 text-xs mt-1">Browse Collection</p>
       </div>
-      <div class="bg-[#1f2937] p-8 rounded-3xl text-center">
-        <i class="fa-solid fa-laptop text-5xl mb-6 text-cyan-400"></i>
-        <h3 class="font-semibold text-xl">Software Logs</h3>
-        <p class="text-gray-400 text-sm mt-2">Browse Collection</p>
+      <div class="bg-[#1f2937] p-6 rounded-3xl text-center">
+        <i class="fa-solid fa-laptop text-5xl mb-5 text-cyan-400"></i>
+        <h3 class="font-semibold">Software Logs</h3>
+        <p class="text-gray-400 text-xs mt-1">Browse Collection</p>
       </div>
     </div>
   </section>
 
-  <!-- READY TO GET STARTED -->
-  <section class="bg-gradient-to-br from-[#4f46e5] to-[#7c3aed] py-20 px-6 text-center">
-    <h2 class="text-4xl font-bold mb-6">Ready to get started?</h2>
-    <p class="max-w-md mx-auto mb-10 text-lg">
+  <!-- READY -->
+  <section class="bg-gradient-to-br from-[#4f46e5] to-[#7c3aed] py-16 px-5 text-center">
+    <h2 class="text-3xl font-bold mb-4">Ready to get started?</h2>
+    <p class="text-sm max-w-xs mx-auto mb-8">
       Join thousands of users leveraging our platform for secure verification and growth.
     </p>
-    <button onclick="showLogin()" class="bg-black text-white px-12 py-5 rounded-3xl text-xl font-semibold">Get Started →</button>
+    <button onclick="showLogin()" class="bg-black text-white px-10 py-4 rounded-3xl text-base font-semibold">Get Started →</button>
   </section>
 
   <!-- FOOTER -->
-  <footer class="px-6 py-16 bg-[#0a0a0f]">
-    <div class="max-w-4xl mx-auto">
-      <div class="flex items-center gap-3 mb-8">
-        <div class="w-9 h-9 bg-[#6366f1] rounded-full flex items-center justify-center text-xl font-bold">L</div>
-        <span class="text-2xl font-semibold">LogsPanelSuite</span>
-      </div>
-      <p class="text-gray-400 mb-12">
-        Your trusted platform for virtual numbers and social media marketing services.
-      </p>
+  <footer class="px-5 py-12 bg-[#0a0a0f]">
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-8 h-8 bg-[#6366f1] rounded-full flex items-center justify-center text-lg font-bold">L</div>
+      <span class="text-xl font-semibold">LogsPanelSuite</span>
+    </div>
+    <p class="text-gray-400 text-sm mb-10">
+      Your trusted platform for virtual numbers and social media marketing services.
+    </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-        <div>
-          <h4 class="font-semibold mb-4 text-lg">SERVICES</h4>
-          <ul class="space-y-3 text-gray-400">
-            <li>Virtual Numbers</li>
-            <li>SMM Services</li>
-            <li>Social Accounts</li>
-            <li>Software Logs</li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold mb-4 text-lg">SUPPORT</h4>
-          <ul class="space-y-3 text-gray-400">
-            <li>Help Center</li>
-            <li>Documentation</li>
-            <li>Status Page</li>
-            <li>Contact Us</li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-semibold mb-4 text-lg">LEGAL</h4>
-          <ul class="space-y-3 text-gray-400">
-            <li>Terms of Service</li>
-            <li>Privacy Policy</li>
-            <li>Cookie Policy</li>
-            <li>Refund Policy</li>
-          </ul>
-        </div>
+    <div class="space-y-8 text-sm">
+      <div>
+        <h4 class="font-semibold mb-3">SERVICES</h4>
+        <ul class="space-y-2 text-gray-400">
+          <li>Virtual Numbers</li>
+          <li>SMM Services</li>
+          <li>Social Accounts</li>
+          <li>Software Logs</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-3">SUPPORT</h4>
+        <ul class="space-y-2 text-gray-400">
+          <li>Help Center</li>
+          <li>Documentation</li>
+          <li>Status Page</li>
+          <li>Contact Us</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-3">LEGAL</h4>
+        <ul class="space-y-2 text-gray-400">
+          <li>Terms of Service</li>
+          <li>Privacy Policy</li>
+          <li>Cookie Policy</li>
+          <li>Refund Policy</li>
+        </ul>
       </div>
     </div>
   </footer>
 
-  <!-- Floating Telegram -->
-  <div onclick="showLogin()" class="fixed bottom-8 right-8 w-16 h-16 bg-[#22d3ee] rounded-full flex items-center justify-center shadow-2xl cursor-pointer">
-    <i class="fa-brands fa-telegram text-4xl text-black"></i>
+  <!-- Floating -->
+  <div onclick="showLogin()" class="fixed bottom-6 right-6 w-14 h-14 bg-[#22d3ee] rounded-full flex items-center justify-center shadow-2xl cursor-pointer">
+    <i class="fa-brands fa-telegram text-3xl text-black"></i>
   </div>
 
   <!-- Firebase -->
@@ -154,7 +155,7 @@
     initializeApp(firebaseConfig);
     getAnalytics();
 
-    window.showLogin = () => alert("Firebase is connected.");
+    window.showLogin = () => alert("Firebase connected.");
   </script>
 </body>
 </html>
