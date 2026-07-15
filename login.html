@@ -391,7 +391,7 @@ getAnalytics(app);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
-async function googleLogin() {
+// Email Sign In
 async function signInUser() {
 
   const email = document.getElementById("email").value.trim();
@@ -406,9 +406,30 @@ async function signInUser() {
 
   try {
 
-    await signInWithEmailAndPassword(auth, email, password);
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
 
-    window.location.href = "dashboard.html";
+const user = userCredential.user;
+
+// Refresh the user to get the latest verification status
+await user.reload();
+
+if (!user.emailVerified) {
+
+  document.getElementById("loading").classList.add("hidden");
+
+  alert(
+    "Your email address has not been verified.\n\n" +
+    "Please check your inbox and click the verification link before logging in.\n\n" +
+    "If you can't find the email, check your Spam/Junk folder and mark it as 'Not Spam'."
+  );
+
+  await auth.signOut();
+
+  return;
+}
+
+// Email is verified
+window.location.href = "dashboard.html";
 
   } catch (error) {
 
@@ -420,7 +441,9 @@ async function signInUser() {
 
 }
 
-window.signInUser = signInUser;
+// Google Sign In
+async function googleLogin() {
+
   showLoading();
 
   try {
@@ -438,6 +461,8 @@ window.signInUser = signInUser;
   }
 
 }
+
+window.signInUser = signInUser;
 window.googleLogin = googleLogin;
 async function handleForgotPassword() {
 
