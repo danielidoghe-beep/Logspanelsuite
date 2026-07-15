@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Wallet - LogsPanelSuite</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+body{
+
+font-family:system-ui,sans-serif;
+background:#0a0a0f;
+color:white;
+
+}
+
+.menu-slide{
+
+transform:translateX(100%);
+transition:.4s;
+
+}
+
+.menu-slide.open{
+
+transform:translateX(0);
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- MOBILE MENU -->
+
+<div id="mobileMenu"
+class="menu-slide fixed top-0 right-0 h-full w-80 bg-[#111827] shadow-2xl z-50 p-6">
+
+<button
+onclick="toggleMenu()"
+class="float-right text-3xl">
+
+<i class="fa-solid fa-xmark"></i>
+
+</button>
+
+<div class="space-y-6 text-lg pt-10">
+
+<a href="dashboard.html"
+class="block py-2">
+
+Home
+
+</a>
+
+<a href="wallet.html"
+class="block py-2 text-blue-400">
+
+Wallet
+
+</a>
+
+<a href="#"
+class="block py-2">
+
+Support
+
+</a>
+
+<a href="#"
+class="block py-2">
+
+Logout
+
+</a>
+
+</div>
+
+</div>
+
+<!-- HEADER -->
+
+<header class="flex items-center justify-between px-5 py-5 border-b border-gray-800">
+
+<div class="flex items-center gap-3">
+
+<div class="w-10 h-10 rounded-full bg-[#6366f1] flex items-center justify-center font-bold text-xl">
+
+L
+
+</div>
+
+<div>
+
+<h1 class="text-xl font-bold">
+
+LogsPanelSuite
+
+</h1>
+
+<p class="text-xs text-gray-400">
+
+Secure Digital Marketplace
+
+</p>
+
+</div>
+
+</div>
+
+<button
+onclick="toggleMenu()"
+class="text-2xl">
+
+<i class="fa-solid fa-bars"></i>
+
+</button>
+
+</header>
+
+<!-- WALLET HEADER -->
+
+<section class="px-5 pt-8">
+
+<div class="flex items-center gap-3">
+
+<div class="w-14 h-14 rounded-2xl bg-blue-500/20 flex items-center justify-center">
+
+<i class="fa-solid fa-wallet text-3xl text-blue-400"></i>
+
+</div>
+
+<div>
+
+<h2 class="text-3xl font-bold">
+
+My Wallet
+
+</h2>
+
+<p class="text-gray-400 text-sm mt-1">
+
+Manage your wallet securely with clean funding and transaction tracking.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- WALLET TABS -->
+
+<section class="px-5 mt-8">
+
+<div class="grid grid-cols-3 gap-3">
+
+<button
+id="walletTab"
+class="bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] py-4 rounded-2xl font-semibold">
+
+Wallet
+
+</button>
+
+<button
+id="fundTab"
+class="bg-[#111827] py-4 rounded-2xl text-gray-300 font-semibold">
+
+Fund
+
+</button>
+
+<button
+id="historyTab"
+class="bg-[#111827] py-4 rounded-2xl text-gray-300 font-semibold">
+
+History
+
+</button>
+
+</div>
+
+</section>
+
+<script>
+
+function toggleMenu(){
+
+document.getElementById("mobileMenu").classList.toggle("open");
+
+}
+
+</script>
+
+</body>
+</html>
+<!-- WALLET BALANCE CARD -->
+
+<section class="px-5 mt-8">
+
+<div class="bg-gradient-to-r from-orange-400 via-amber-400 to-yellow-300 rounded-3xl p-6 shadow-xl">
+
+<!-- Top -->
+
+<div class="flex justify-between items-center">
+
+<div class="flex items-center gap-3">
+
+<div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
+
+<i class="fa-solid fa-wallet text-2xl text-white"></i>
+
+</div>
+
+<div>
+
+<p class="text-black/70 text-sm font-medium">
+
+Wallet Balance
+
+</p>
+
+</div>
+
+</div>
+
+<div class="flex gap-2">
+
+<button class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+
+<i class="fa-solid fa-eye text-black"></i>
+
+</button>
+
+<button class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+
+<i class="fa-solid fa-rotate-right text-black"></i>
+
+</button>
+
+</div>
+
+</div>
+
+<!-- Balance -->
+
+<div class="mt-8">
+
+<h2 id="walletBalance" class="text-5xl font-bold text-black">
+
+₦0.00
+
+</h2>
+
+<p class="text-black/70 mt-2">
+
+NGN • Updated just now
+
+</p>
+
+</div>
+
+<!-- Button -->
+
+<button
+class="w-full mt-8 bg-black text-white py-4 rounded-2xl font-semibold">
+
+<i class="fa-solid fa-plus mr-2"></i>
+
+Add Funds
+
+</button>
+
+</div>
+
+</section>
+<!-- STATISTICS -->
+
+<section class="px-5 mt-6">
+
+<div class="grid grid-cols-2 gap-4">
+
+<!-- Total Deposits -->
+
+<div class="bg-[#111827] rounded-3xl p-5">
+
+<div class="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mb-4">
+
+<i class="fa-solid fa-arrow-up text-blue-400 text-xl"></i>
+
+</div>
+
+<p class="text-gray-400 text-sm">
+
+Total Deposits
+
+</p>
+
+<h3 id="totalDeposits" class="text-2xl font-bold mt-2">
+
+₦0.00
+
+</h3>
+
+</div>
+
+<!-- Total Spent -->
+
+<div class="bg-[#111827] rounded-3xl p-5">
+
+<div class="w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center mb-4">
+
+<i class="fa-solid fa-arrow-down text-red-400 text-xl"></i>
+
+</div>
+
+<p class="text-gray-400 text-sm">
+
+Total Spent
+
+</p>
+
+<h3 id="totalSpent" class="text-2xl font-bold text-red-400 mt-2">
+
+₦0.00
+
+</h3>
+
+</div>
+
+</div>
+
+</section>
+<!-- RECENT ACTIVITY -->
+
+<section class="px-5 mt-8 mb-28">
+
+<div class="flex items-center justify-between mb-4">
+
+<div>
+
+<h2 class="text-2xl font-bold">
+
+Recent Activity
+
+</h2>
+
+<p class="text-gray-400 text-sm mt-1">
+
+Tap a transaction to view its order
+
+</p>
+
+</div>
+
+<button class="text-blue-400 font-semibold">
+
+View All →
+
+</button>
+
+</div>
+
+<div class="bg-[#111827] rounded-3xl p-8 text-center">
+
+<div class="w-20 h-20 rounded-full bg-blue-500/20 flex items-center justify-center mx-auto mb-6">
+
+<i class="fa-solid fa-clock-rotate-left text-4xl text-blue-400"></i>
+
+</div>
+
+<h3 class="text-2xl font-bold">
+
+No transactions yet
+
+</h3>
+
+<p class="text-gray-400 mt-3">
+
+Fund your wallet to get started.
+
+</p>
+
+<button
+id="activityAddFundsBtn"
+class="mt-8 w-full bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] py-4 rounded-2xl font-semibold">
+
+<i class="fa-solid fa-plus mr-2"></i>
+
+Add Funds
+
+</button>
+
+</div>
+
+</section>
+<!-- BOTTOM NAVIGATION -->
+
+<nav class="fixed bottom-0 left-0 w-full bg-[#111827] border-t border-gray-800">
+
+<div class="grid grid-cols-5 h-20">
+
+<a href="dashboard.html"
+class="flex flex-col items-center justify-center text-gray-400">
+
+<i class="fa-solid fa-house text-2xl"></i>
+
+<span class="text-xs mt-1">
+
+Home
+
+</span>
+
+</a>
+
+<a href="wallet.html"
+class="flex flex-col items-center justify-center text-blue-500">
+
+<i class="fa-solid fa-wallet text-2xl"></i>
+
+<span class="text-xs mt-1 font-semibold">
+
+Wallet
+
+</span>
+
+</a>
+
+<a href="services.html"
+class="flex flex-col items-center justify-center text-gray-400">
+
+<i class="fa-solid fa-layer-group text-2xl"></i>
+
+<span class="text-xs mt-1">
+
+Services
+
+</span>
+
+</a>
+
+<a href="support.html"
+class="flex flex-col items-center justify-center text-gray-400">
+
+<i class="fa-regular fa-circle-question text-2xl"></i>
+
+<span class="text-xs mt-1">
+
+Support
+
+</span>
+
+</a>
+
+<button
+onclick="toggleMenu()"
+class="flex flex-col items-center justify-center text-gray-400">
+
+<i class="fa-solid fa-bars text-2xl"></i>
+
+<span class="text-xs mt-1">
+
+Menu
+
+</span>
+
+</button>
+
+</div>
+
+</nav>
+<script>
+
+function toggleMenu(){
+
+document.getElementById("mobileMenu").classList.toggle("open");
+
+}
+
+function switchTab(tab){
+
+const wallet=document.getElementById("walletTab");
+const fund=document.getElementById("fundTab");
+const history=document.getElementById("historyTab");
+
+wallet.className="bg-[#111827] text-gray-300 font-semibold py-4 rounded-2xl";
+fund.className="bg-[#111827] text-gray-300 font-semibold py-4 rounded-2xl";
+history.className="bg-[#111827] text-gray-300 font-semibold py-4 rounded-2xl";
+
+if(tab==="wallet"){
+
+wallet.className="bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] text-white font-semibold py-4 rounded-2xl";
+
+}else if(tab==="fund"){
+
+fund.className="bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] text-white font-semibold py-4 rounded-2xl";
+
+}else{
+
+history.className="bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] text-white font-semibold py-4 rounded-2xl";
+
+}
+
+}
+
+</script>
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+
+import {
+  getFirestore,
+  doc,
+  getDoc
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+import {
+  getAuth,
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyA53ORM49_ecEyokNloQquC2XfCYwuUFfI",
+  authDomain: "logspanelsuite.firebaseapp.com",
+  projectId: "logspanelsuite",
+  storageBucket: "logspanelsuite.firebasestorage.app",
+  messagingSenderId: "927578504424",
+  appId: "1:927578504424:web:bc2d8e9ea4e805ca669d5d",
+  measurementId: "G-1N2G89RHD3"
+};
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+const db = getFirestore(app);
+
+onAuthStateChanged(auth, async (user) => {
+
+  if (!user) {
+
+    window.location.href = "login.html";
+    return;
+
+  }
+
+  const snap = await getDoc(doc(db, "users", user.uid));
+
+  if (snap.exists()) {
+
+    const data = snap.data();
+
+    document.getElementById("walletBalance").textContent =
+      "₦" + Number(data.balance || 0).toLocaleString();
+
+    document.getElementById("totalDeposits").textContent =
+      "₦" + Number(data.totalDeposits || 0).toLocaleString();
+
+    document.getElementById("totalSpent").textContent =
+      "₦" + Number(data.totalSpent || 0).toLocaleString();
+
+  }
+
+});
+
+</script>
+</body>
+</html>
