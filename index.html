@@ -215,15 +215,19 @@
       document.getElementById('mobileMenu').classList.toggle('open');
     }
 
-    function handleButtonClick() {
-      const loading = document.getElementById('loading');
-      loading.classList.remove('hidden');
-      
-      setTimeout(() => {
-        loading.classList.add('hidden');
-        alert("Action completed! 🎉");
-      }, 1500);
-    }
+    function handleButtonClick(page = "login.html") {
+
+  const loading = document.getElementById("loading");
+
+  loading.classList.remove("hidden");
+
+  setTimeout(() => {
+
+    window.location.href = page;
+
+  },1500);
+
+}
 
     window.showLogin = handleButtonClick;
     window.handleButtonClick = handleButtonClick;
