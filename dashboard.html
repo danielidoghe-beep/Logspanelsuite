@@ -1,1 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Dashboard - LogsPanelSuite</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+body{
+background:#0a0a0f;
+font-family:system-ui,sans-serif;
+color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+
+<div class="px-5 pt-6">
+
+<div class="flex items-center justify-between">
+
+<button
+class="w-10 h-10 rounded-full bg-[#1f2937]">
+
+<i class="fa-solid fa-xmark"></i>
+
+</button>
+
+<div
+class="bg-[#1f2937] px-5 py-2 rounded-full text-sm">
+
+logspanelsuite.com
+
+</div>
+
+<button
+class="w-10 h-10 rounded-full bg-[#1f2937]">
+
+<i class="fa-solid fa-ellipsis-vertical"></i>
+
+</button>
+
+</div>
+
+</div>
+
+<!-- HEADER -->
+
+<div class="px-5 mt-8">
+
+<h1
+class="text-3xl font-bold">
+
+LogsPanelSuite
+
+</h1>
+
+<p
+id="welcomeText"
+class="text-gray-400 mt-2">
+
+Welcome back...
+
+</p>
+
+</div>
+
+<!-- WALLET -->
+
+<div class="px-5 mt-8">
+
+<div
+class="rounded-3xl p-6 bg-gradient-to-r from-orange-500 to-yellow-400">
+
+<div class="flex justify-between items-center">
+
+<div>
+
+<p class="text-black font-semibold">
+
+Wallet Balance
+
+</p>
+
+<div
+class="flex items-center gap-3 mt-2">
+
+<h2
+id="balance"
+
+class="text-5xl font-bold text-black">
+
+₦0.00
+
+</h2>
+
+<button
+onclick="toggleBalance()">
+
+<i
+id="eyeIcon"
+class="fa-solid fa-eye text-black text-xl">
+
+</i>
+
+</button>
+
+</div>
+
+</div>
+
+<button
+
+onclick="showLoading()"
+
+class="bg-black text-white px-6 py-3 rounded-2xl font-semibold">
+
++ Add Funds
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+<!-- STATISTICS -->
+
+<div class="px-5 mt-6">
+
+<div class="grid grid-cols-2 gap-4">
+
+<div class="bg-[#111827] rounded-3xl p-5">
+
+<div class="flex items-center gap-3">
+
+<div class="w-12 h-12 rounded-2xl bg-[#1f2937] flex items-center justify-center">
+
+<i class="fa-solid fa-dollar-sign text-green-400 text-xl"></i>
+
+</div>
+
+<div>
+
+<p class="text-gray-400 text-sm">
+Total Spent
+</p>
+
+<h3 id="totalSpent" class="text-2xl font-bold mt-1">
+₦0.00
+</h3>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="bg-[#111827] rounded-3xl p-5">
+
+<div class="flex items-center gap-3">
+
+<div class="w-12 h-12 rounded-2xl bg-[#1f2937] flex items-center justify-center">
+
+<i class="fa-solid fa-arrow-trend-up text-blue-400 text-xl"></i>
+
+</div>
+
+<div>
+
+<p class="text-gray-400 text-sm">
+Total Orders
+</p>
+
+<h3 id="totalOrders" class="text-2xl font-bold mt-1">
+0
+</h3>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- RENT VIRTUAL NUMBERS -->
+
+<div class="px-5 mt-6">
+
+<div class="rounded-3xl bg-gradient-to-r from-blue-600 to-cyan-500 p-6">
+
+<div class="flex justify-between items-center">
+
+<div>
+
+<h2 class="text-2xl font-bold">
+
+Rent Virtual Numbers
+
+</h2>
+
+<p class="text-sm text-blue-100 mt-3 max-w-[220px]">
+
+Get SMS verification codes instantly with premium virtual numbers.
+
+</p>
+
+<button
+
+onclick="showLoading()"
+
+class="mt-5 bg-white text-blue-700 px-5 py-3 rounded-2xl font-semibold">
+
+Rent Now →
+
+</button>
+
+</div>
+
+<div>
+
+<i class="fa-solid fa-mobile-screen-button text-6xl text-white"></i>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<!-- SOCIAL ACCOUNTS -->
+
+<div class="px-5 mt-8">
+
+<div class="bg-[#111827] rounded-3xl p-6">
+
+<div class="flex items-center gap-3">
+
+<div class="w-12 h-12 rounded-2xl bg-orange-500/20 flex items-center justify-center">
+
+<i class="fa-solid fa-users text-orange-400 text-xl"></i>
+
+</div>
+
+<h2 class="text-2xl font-bold">
+
+Social Accounts
+
+</h2>
+
+</div>
+
+<div class="text-center mt-8">
+
+<h1 id="accountsPurchased" class="text-7xl font-bold">
+
+0
+
+</h1>
+
+<p class="text-gray-400 mt-2">
+
+Purchased
+
+</p>
+
+</div>
+
+<div class="flex justify-center gap-4 mt-8">
+
+<div class="bg-yellow-500/20 text-yellow-400 px-5 py-2 rounded-full">
+
+Pending <span id="pendingOrders">0</span>
+
+</div>
+
+<div class="bg-green-500/20 text-green-400 px-5 py-2 rounded-full">
+
+Completed <span id="completedOrders">0</span>
+
+</div>
+
+</div>
+
+<button
+
+onclick="showLoading()"
+
+class="w-full mt-8 bg-[#6366f1] py-4 rounded-2xl font-semibold">
+
+Browse Accounts →
+
+</button>
+
+</div>
+
+</div>
+
+<!-- SERVICES -->
+
+<div class="px-5 mt-8">
+
+<h2 class="text-2xl font-bold mb-5">
+
+Services
+
+</h2>
+
+<div class="grid grid-cols-2 gap-4">
+
+<div onclick="showLoading()"
+class="bg-[#111827] rounded-3xl p-6 cursor-pointer">
+
+<div class="w-14 h-14 rounded-2xl bg-blue-500/20 flex items-center justify-center">
+
+<i class="fa-solid fa-mobile-screen-button text-blue-400 text-2xl"></i>
+
+</div>
+
+<h3 class="font-bold mt-5">
+
+Rent Number
+
+</h3>
+
+<p class="text-gray-400 text-sm mt-2">
+
+Get a virtual number
+
+</p>
+
+</div>
+
+<div onclick="showLoading()"
+class="bg-[#111827] rounded-3xl p-6 cursor-pointer">
+
+<div class="w-14 h-14 rounded-2xl bg-purple-500/20 flex items-center justify-center">
+
+<i class="fa-solid fa-chart-line text-purple-400 text-2xl"></i>
+
+</div>
+
+<h3 class="font-bold mt-5">
+
+SMM Services
+
+</h3>
+
+<p class="text-gray-400 text-sm mt-2">
+
+Boost your social media
+
+</p>
+
+</div>
+
+<div onclick="showLoading()"
+class="bg-[#111827] rounded-3xl p-6 cursor-pointer">
+
+<div class="w-14 h-14 rounded-2xl bg-orange-500/20 flex items-center justify-center">
+
+<i class="fa-solid fa-users text-orange-400 text-2xl"></i>
+
+</div>
+
+<h3 class="font-bold mt-5">
+
+Social Accounts
+
+</h3>
+
+<p class="text-gray-400 text-sm mt-2">
+
+Manage your accounts
+
+</p>
+
+</div>
+
+<div onclick="showLoading()"
+class="bg-[#111827] rounded-3xl p-6 cursor-pointer">
+
+<div class="w-14 h-14 rounded-2xl bg-teal-500/20 flex items-center justify-center">
+
+<i class="fa-solid fa-users-gear text-teal-400 text-2xl"></i>
+
+</div>
+
+<h3 class="font-bold mt-5">
+
+More Accounts
+
+</h3>
+
+<p class="text-gray-400 text-sm mt-2">
+
+Premium collections
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<!-- ACTIVITY -->
+
+<div class="px-5 mt-10">
+
+<div class="bg-[#111827] rounded-3xl p-8 text-center">
+
+<div class="w-20 h-20 mx-auto rounded-full bg-[#1f2937] flex items-center justify-center">
+
+<i class="fa-solid fa-bell text-4xl text-yellow-400"></i>
+
+</div>
+
+<h2 class="text-2xl font-bold mt-6">
+
+All caught up!
+
+</h2>
+
+<p class="text-gray-400 mt-3">
+
+No recent activity to show.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- TELEGRAM -->
+
+<a href="https://t.me/+Xbt-w6-TwsozYjY0"
+target="_blank"
+class="fixed bottom-24 right-6 w-14 h-14 bg-cyan-400 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition">
+
+<i class="fa-brands fa-telegram text-3xl text-black"></i>
+
+</a>
+
+<!-- BOTTOM NAVIGATION -->
+
+<div class="fixed bottom-0 left-0 right-0 bg-[#111827] border-t border-gray-800">
+
+<div class="grid grid-cols-5 py-3">
+
+<button onclick="showLoading()" class="flex flex-col items-center text-blue-400">
+
+<i class="fa-solid fa-house text-2xl"></i>
+
+<span class="text-xs mt-1">
+
+Home
+
+</span>
+
+</button>
+
+<button onclick="showLoading()" class="flex flex-col items-center text-gray-400">
+
+<i class="fa-solid fa-wallet text-2xl"></i>
+
+<span class="text-xs mt-1">
+
+Wallet
+
+</span>
+
+</button>
+
+<button onclick="showLoading()" class="flex flex-col items-center text-gray-400">
+
+<i class="fa-solid fa-layer-group text-2xl"></i>
+
+<span class="text-xs mt-1">
+
+Services
+
+</span>
+
+</button>
+
+<button onclick="showLoading()" class="flex flex-col items-center text-gray-400">
+
+<i class="fa-solid fa-circle-question text-2xl"></i>
+
+<span class="text-xs mt-1">
+
+Support
+
+</span>
+
+</button>
+
+<button onclick="toggleMenu()" class="flex flex-col items-center text-gray-400">
+
+<i class="fa-solid fa-bars text-2xl"></i>
+
+<span class="text-xs mt-1">
+
+Menu
+
+</span>
+
+</button>
+
+</div>
+
+</div>
+
+<!-- LOADING -->
+
+<div id="loading"
+class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+
+<div class="flex flex-col items-center">
+
+<div class="w-14 h-14 border-4 border-[#6366f1] border-t-transparent rounded-full animate-spin"></div>
+
+<p class="mt-4 text-white text-lg">
+
+Loading...
+
+</p>
+
+</div>
+
+</div>
+<script>
+let balanceVisible = true;
+
+function showLoading(callback){
+
+const loading=document.getElementById("loading");
+
+loading.classList.remove("hidden");
+
+setTimeout(()=>{
+
+loading.classList.add("hidden");
+
+if(callback) callback();
+
+},1500);
+
+}
+
+function toggleMenu(){
+
+alert("Menu page coming soon.");
+
+}
+
+function toggleBalance(){
+
+const balance=document.getElementById("balance");
+
+const eye=document.getElementById("eyeIcon");
+
+if(balanceVisible){
+
+balance.innerText="₦••••••";
+
+eye.className="fa-solid fa-eye-slash";
+
+}else{
+
+balance.innerText=window.realBalance || "₦0.00";
+
+eye.className="fa-solid fa-eye";
+
+}
+
+balanceVisible=!balanceVisible;
+
+}
+</script>
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-analytics.js";
+
+import {
+getAuth,
+onAuthStateChanged,
+signOut
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
+
+import {
+getFirestore,
+doc,
+getDoc
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+const firebaseConfig = {
+apiKey: "AIzaSyA53ORM49_ecEyokNloQquC2XfCYwuUFfI",
+authDomain: "logspanelsuite.firebaseapp.com",
+projectId: "logspanelsuite",
+storageBucket: "logspanelsuite.firebasestorage.app",
+messagingSenderId: "927578504424",
+appId: "1:927578504424:web:bc2d8e9ea4e805ca669d5d",
+measurementId: "G-1N2G89RHD3"
+};
+
+const app = initializeApp(firebaseConfig);
+getAnalytics(app);
+
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+onAuthStateChanged(auth, async(user)=>{
+
+if(!user){
+
+window.location.href="login.html";
+return;
+
+}
+
+await user.reload();
+
+if(!user.emailVerified){
+
+alert("Please verify your email before accessing your dashboard.");
+
+await signOut(auth);
+
+window.location.href="login.html";
+
+return;
+
+}
+
+const welcome=document.getElementById("welcomeText");
+
+const snap=await getDoc(doc(db,"users",user.uid));
+
+if(snap.exists()){
+
+const data=snap.data();
+
+welcome.innerHTML=
+`Welcome back, <b>${data.fullName}</b>`;
+
+window.realBalance=
+"₦"+Number(data.balance||0).toLocaleString();
+
+document.getElementById("balance").innerText=
+window.realBalance;
+
+document.getElementById("totalSpent").innerText=
+"₦"+Number(data.totalSpent||0).toLocaleString();
+
+document.getElementById("totalOrders").innerText=
+data.totalOrders||0;
+
+document.getElementById("pendingOrders").innerText=
+data.pendingOrders||0;
+
+document.getElementById("completedOrders").innerText=
+data.completedOrders||0;
+
+document.getElementById("accountsPurchased").innerText=
+data.accountsPurchased||0;
+
+}else{
+
+window.realBalance="₦0.00";
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
