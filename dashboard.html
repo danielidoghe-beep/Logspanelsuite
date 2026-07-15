@@ -462,7 +462,9 @@ class="fixed bottom-24 right-6 w-14 h-14 bg-cyan-400 rounded-full flex items-cen
 
 <div class="grid grid-cols-5 py-3">
 
-<button onclick="showLoading()" class="flex flex-col items-center text-blue-400">
+<button
+onclick="showLoading(() => window.location.href='wallet.html')"
+class="flex flex-col items-center text-blue-400">
 
 <i class="fa-solid fa-house text-2xl"></i>
 
