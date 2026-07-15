@@ -217,3 +217,171 @@ margin:auto;
 color:#b8bdd5;
 line-height:1.8;
 }
+/* ================= MARKET CARDS ================= */
+
+.market-grid{
+    max-width:1200px;
+    margin:60px auto 0;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.market-card{
+    background:#10141f;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:22px;
+    padding:35px;
+    transition:.35s;
+    text-align:left;
+}
+
+.market-card:hover{
+    transform:translateY(-8px);
+    border-color:#6d63ff;
+}
+
+.market-card i{
+    width:70px;
+    height:70px;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    margin-bottom:25px;
+    color:#fff;
+    background:#6d63ff;
+}
+
+.market-card h3{
+    font-size:28px;
+    margin-bottom:12px;
+}
+
+.market-card p{
+    color:#9da4bf;
+    line-height:1.7;
+}
+
+/* ================= CTA ================= */
+
+.cta{
+    max-width:1200px;
+    margin:80px auto;
+    padding:70px 30px;
+    border-radius:30px;
+    background:linear-gradient(135deg,#5b4cff,#7268ff);
+    text-align:center;
+}
+
+.cta h2{
+    font-size:52px;
+    margin-bottom:20px;
+}
+
+.cta p{
+    color:#ececff;
+    max-width:700px;
+    margin:auto;
+    line-height:1.8;
+}
+
+.cta a{
+    display:inline-block;
+    margin-top:35px;
+    padding:18px 45px;
+    background:#000;
+    color:#fff;
+    text-decoration:none;
+    border-radius:50px;
+    font-weight:700;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#0b1023;
+    padding:70px 20px 30px;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.footer-grid{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:40px;
+}
+
+.footer-grid h3,
+.footer-grid h4{
+    margin-bottom:20px;
+}
+
+.footer-grid p{
+    color:#aeb4cb;
+    line-height:1.8;
+}
+
+.footer-grid a{
+    display:block;
+    color:#aeb4cb;
+    text-decoration:none;
+    margin:10px 0;
+}
+
+.footer-grid a:hover{
+    color:#6d63ff;
+}
+
+.copyright{
+    margin-top:50px;
+    text-align:center;
+    color:#888;
+    border-top:1px solid rgba(255,255,255,.08);
+    padding-top:25px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+.hero{
+    padding:60px 20px;
+}
+
+.hero h1{
+    font-size:42px;
+}
+
+.search-box{
+    flex-direction:column;
+}
+
+.search-box button{
+    width:100%;
+}
+
+.market h2{
+    font-size:34px;
+}
+
+.market-card{
+    padding:28px;
+}
+
+.cta{
+    margin:50px 20px;
+    padding:50px 20px;
+}
+
+.cta h2{
+    font-size:38px;
+}
+
+.logo h2{
+    font-size:22px;
+}
+
+}
