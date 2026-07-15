@@ -326,3 +326,49 @@ Loading...
 </div>
 
 </div>
+<script>
+function toggleMenu() {
+  document.getElementById("mobileMenu").classList.toggle("open");
+}
+
+function showLoading(callback) {
+  const loading = document.getElementById("loading");
+
+  loading.classList.remove("hidden");
+
+  setTimeout(() => {
+    loading.classList.add("hidden");
+
+    if (callback) {
+      callback();
+    }
+
+  }, 1500);
+}
+
+function loadingRedirect(event, page) {
+  if (event) event.preventDefault();
+
+  showLoading(() => {
+    window.location.href = page;
+  });
+}
+
+function togglePassword() {
+
+  const password = document.getElementById("password");
+  const eye = document.getElementById("eyeIcon");
+
+  if (password.type === "password") {
+
+    password.type = "text";
+    eye.className = "fa-solid fa-eye-slash";
+
+  } else {
+
+    password.type = "password";
+    eye.className = "fa-solid fa-eye";
+
+  }
+}
+</script>
