@@ -6,6 +6,16 @@
   <title>LogsPanelSuite</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body { font-family: system-ui, sans-serif; }
+    .menu-slide {
+      transform: translateX(100%);
+      transition: transform 0.4s ease-in-out;
+    }
+    .menu-slide.open {
+      transform: translateX(0);
+    }
+  </style>
 </head>
 <body class="bg-[#0a0a0f] text-white">
 
@@ -15,11 +25,29 @@
       <div class="w-8 h-8 bg-[#6366f1] rounded-full flex items-center justify-center text-lg font-bold">L</div>
       <span class="text-xl font-semibold">LogsPanelSuite</span>
     </div>
-    <i class="fa-solid fa-bars text-2xl"></i>
+    <button onclick="toggleMenu()" class="text-3xl">
+      <i class="fa-solid fa-bars"></i>
+    </button>
   </header>
 
+  <!-- MOBILE MENU -->
+  <div id="mobileMenu" class="menu-slide fixed top-0 right-0 h-full w-80 bg-[#111827] shadow-2xl z-50 p-6">
+    <button onclick="toggleMenu()" class="float-right text-3xl mb-8">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="space-y-6 text-lg pt-8">
+      <a href="#" class="block py-2">Services</a>
+      <a href="#" class="block py-2">About</a>
+      <a href="#" class="block py-2">Contact</a>
+      <a href="#" onclick="handleButtonClick()" class="block py-2">Sign In</a>
+      <button onclick="handleButtonClick()" class="w-full bg-[#6366f1] py-4 rounded-3xl text-lg font-semibold mt-8">
+        Get Started
+      </button>
+    </div>
+  </div>
+
   <!-- HERO -->
-  <section class="pt-10 pb-12 px-5 text-center">
+  <section class="pt-12 pb-16 px-5 text-center">
     <h1 class="text-4xl font-bold leading-tight mb-5">
       The Ultimate Panel Suite<br>for Digital Assets
     </h1>
@@ -28,9 +56,8 @@
     </p>
 
     <div class="max-w-md mx-auto flex gap-2 mb-8">
-      <input type="text" placeholder="Search products..." 
-             class="flex-1 bg-[#1f2937] rounded-3xl px-5 py-3 text-sm focus:outline-none">
-      <button class="bg-[#6366f1] px-8 rounded-3xl text-sm font-medium">Search</button>
+      <input type="text" placeholder="Search products..." class="flex-1 bg-[#1f2937] rounded-3xl px-5 py-3 text-sm focus:outline-none">
+      <button onclick="handleButtonClick()" class="bg-[#6366f1] px-8 rounded-3xl text-sm font-medium">Search</button>
     </div>
 
     <div class="mb-8">
@@ -43,8 +70,8 @@
     </div>
 
     <div class="flex justify-center gap-3">
-      <button onclick="showLogin()" class="bg-[#6366f1] px-7 py-3 rounded-3xl text-sm font-semibold">Get Started Free</button>
-      <button class="border border-gray-600 px-7 py-3 rounded-3xl text-sm font-semibold">Explore Services</button>
+      <button onclick="handleButtonClick()" class="bg-[#6366f1] px-7 py-3 rounded-3xl text-sm font-semibold">Get Started Free</button>
+      <button onclick="handleButtonClick()" class="border border-gray-600 px-7 py-3 rounded-3xl text-sm font-semibold">Explore Services</button>
     </div>
   </section>
 
@@ -59,42 +86,42 @@
     </div>
 
     <div class="grid grid-cols-2 gap-4">
-      <div class="bg-[#1f2937] p-6 rounded-3xl text-center">
+      <div onclick="handleButtonClick()" class="bg-[#1f2937] p-6 rounded-3xl text-center cursor-pointer">
         <i class="fa-solid fa-users text-5xl mb-5 text-orange-400"></i>
         <h3 class="font-semibold">Social Accounts</h3>
         <p class="text-gray-400 text-xs mt-1">Browse Collection</p>
       </div>
-      <div class="bg-[#1f2937] p-6 rounded-3xl text-center">
+      <div onclick="handleButtonClick()" class="bg-[#1f2937] p-6 rounded-3xl text-center cursor-pointer">
         <i class="fa-solid fa-mobile-screen-button text-5xl mb-5 text-blue-400"></i>
         <h3 class="font-semibold">Virtual Numbers</h3>
         <p class="text-gray-400 text-xs mt-1">Browse Collection</p>
       </div>
-      <div class="bg-[#1f2937] p-6 rounded-3xl text-center">
+      <div onclick="handleButtonClick()" class="bg-[#1f2937] p-6 rounded-3xl text-center cursor-pointer">
         <i class="fa-solid fa-chart-line text-5xl mb-5 text-purple-400"></i>
         <h3 class="font-semibold">SMM Orders</h3>
         <p class="text-gray-400 text-xs mt-1">Browse Collection</p>
       </div>
-      <div class="bg-[#1f2937] p-6 rounded-3xl text-center">
+      <div onclick="handleButtonClick()" class="bg-[#1f2937] p-6 rounded-3xl text-center cursor-pointer">
         <i class="fa-solid fa-laptop text-5xl mb-5 text-cyan-400"></i>
         <h3 class="font-semibold">Software Logs</h3>
         <p class="text-gray-400 text-xs mt-1">Browse Collection</p>
       </div>
-      <div class="bg-[#1f2937] p-6 rounded-3xl text-center">
+      <div onclick="handleButtonClick()" class="bg-[#1f2937] p-6 rounded-3xl text-center cursor-pointer">
         <i class="fa-solid fa-network-wired text-5xl mb-5 text-red-400"></i>
         <h3 class="font-semibold">Proxy</h3>
         <p class="text-gray-400 text-xs mt-1">Browse Collection</p>
       </div>
-      <div class="bg-[#1f2937] p-6 rounded-3xl text-center">
+      <div onclick="handleButtonClick()" class="bg-[#1f2937] p-6 rounded-3xl text-center cursor-pointer">
         <i class="fa-solid fa-sim-card text-5xl mb-5 text-teal-400"></i>
         <h3 class="font-semibold">E-SIM</h3>
         <p class="text-gray-400 text-xs mt-1">Browse Collection</p>
       </div>
-      <div class="bg-[#1f2937] p-6 rounded-3xl text-center">
+      <div onclick="handleButtonClick()" class="bg-[#1f2937] p-6 rounded-3xl text-center cursor-pointer">
         <i class="fa-solid fa-tv text-5xl mb-5 text-amber-400"></i>
         <h3 class="font-semibold">Streaming</h3>
         <p class="text-gray-400 text-xs mt-1">Browse Collection</p>
       </div>
-      <div class="bg-[#1f2937] p-6 rounded-3xl text-center">
+      <div onclick="handleButtonClick()" class="bg-[#1f2937] p-6 rounded-3xl text-center cursor-pointer">
         <i class="fa-solid fa-shield-halved text-5xl mb-5 text-violet-400"></i>
         <h3 class="font-semibold">VPN & Security</h3>
         <p class="text-gray-400 text-xs mt-1">Browse Collection</p>
@@ -108,7 +135,7 @@
     <p class="text-sm max-w-xs mx-auto mb-8">
       Join thousands of users leveraging our platform for secure verification and growth.
     </p>
-    <button onclick="showLogin()" class="bg-black text-white px-10 py-4 rounded-3xl text-base font-semibold">Get Started →</button>
+    <button onclick="handleButtonClick()" class="bg-black text-white px-10 py-4 rounded-3xl text-base font-semibold">Get Started →</button>
   </section>
 
   <!-- FOOTER -->
@@ -152,9 +179,17 @@
     </div>
   </footer>
 
-  <!-- Floating -->
-  <div onclick="showLogin()" class="fixed bottom-6 right-6 w-14 h-14 bg-[#22d3ee] rounded-full flex items-center justify-center shadow-2xl cursor-pointer">
+  <!-- FLOATING TELEGRAM -->
+  <div onclick="handleButtonClick()" class="fixed bottom-6 right-6 w-14 h-14 bg-[#22d3ee] rounded-full flex items-center justify-center shadow-2xl cursor-pointer">
     <i class="fa-brands fa-telegram text-3xl text-black"></i>
+  </div>
+
+  <!-- LOADING OVERLAY -->
+  <div id="loading" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+    <div class="flex flex-col items-center">
+      <div class="w-12 h-12 border-4 border-[#6366f1] border-t-transparent rounded-full animate-spin"></div>
+      <p class="mt-4 text-gray-300">Loading...</p>
+    </div>
   </div>
 
   <!-- Firebase -->
@@ -175,7 +210,24 @@
     initializeApp(firebaseConfig);
     getAnalytics();
 
-    window.showLogin = () => alert("Firebase connected.");
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+
+    function handleButtonClick() {
+      const loading = document.getElementById('loading');
+      loading.classList.remove('hidden');
+      
+      setTimeout(() => {
+        loading.classList.add('hidden');
+        alert("Action completed! 🎉\n\nFirebase is ready for real functionality.");
+      }, 1500);
+    }
+
+    // Make all buttons use the loading effect
+    window.showLogin = handleButtonClick;
+    window.handleButtonClick = handleButtonClick;
+    window.toggleMenu = toggleMenu;
   </script>
 </body>
 </html>
