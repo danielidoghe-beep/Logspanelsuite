@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account - LogsPanelSuite</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body{
+      font-family:system-ui,sans-serif;
+      background:#ffffff;
+    }
+
+    .menu-slide{
+      transform:translateX(100%);
+      transition:transform .4s ease-in-out;
+    }
+
+    .menu-slide.open{
+      transform:translateX(0);
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="flex items-center justify-between px-5 py-4 border-b border-gray-200">
+
+<div class="flex items-center gap-2.5">
+
+<div class="w-8 h-8 bg-[#6366f1] rounded-full flex items-center justify-center text-lg font-bold text-white">
+L
+</div>
+
+<span class="text-xl font-semibold">
+LogsPanelSuite
+</span>
+
+</div>
+
+<button onclick="toggleMenu()" class="text-3xl">
+<i class="fa-solid fa-bars"></i>
+</button>
+
+</header>
+
+<div id="mobileMenu"
+class="menu-slide fixed top-0 right-0 h-full w-80 bg-[#111827] shadow-2xl z-50 p-6 text-white">
+
+<button onclick="toggleMenu()" class="float-right text-3xl">
+<i class="fa-solid fa-xmark"></i>
+</button>
+
+<div class="space-y-6 text-lg pt-8">
+
+<a href="index.html"
+onclick="loadingRedirect(event,'index.html')"
+class="block py-2">
+Home
+</a>
+
+<a href="login.html"
+onclick="loadingRedirect(event,'login.html')"
+class="block py-2">
+Login
+</a>
+
+</div>
+
+</div>
+
+<section class="min-h-screen flex items-center justify-center bg-white px-6 py-16">
+
+<div class="w-full max-w-md">
+
+<div class="text-center mb-10">
+
+<h1 class="text-5xl font-bold text-[#6366f1]">
+Create Account
+</h1>
+
+<p class="text-gray-500 mt-3">
+Create your free LogsPanelSuite account.
+</p>
+
+</div>
+
+<div class="mb-5">
+
+<label class="block text-gray-700 font-semibold mb-2">
+Full Name
+</label>
+
+<input
+id="fullname"
+type="text"
+placeholder="Enter your full name"
+class="w-full border border-gray-300 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#6366f1]">
+
+</div>
+
+<div class="mb-5">
+
+<label class="block text-gray-700 font-semibold mb-2">
+Email Address
+</label>
+
+<input
+id="email"
+type="email"
+placeholder="Enter your email"
+class="w-full border border-gray-300 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#6366f1]">
+
+</div>
+
+<div class="mb-5">
+
+<label class="block text-gray-700 font-semibold mb-2">
+Password
+</label>
+
+<div class="relative">
+
+<input
+id="password"
+type="password"
+placeholder="Create password"
+class="w-full border border-gray-300 rounded-2xl px-5 py-4 pr-14">
+
+<button type="button"
+onclick="togglePassword()"
+class="absolute right-4 top-1/2 -translate-y-1/2">
+
+<i id="eyeIcon" class="fa-solid fa-eye"></i>
+
+</button>
+
+</div>
+
+</div>
+
+<div class="mb-8">
+
+<label class="block text-gray-700 font-semibold mb-2">
+Confirm Password
+</label>
+
+<input
+id="confirmPassword"
+type="password"
+placeholder="Confirm password"
+class="w-full border border-gray-300 rounded-2xl px-5 py-4">
+
+</div>
+
+<button
+onclick="registerUser()"
+class="w-full bg-[#6366f1] hover:bg-[#5558ec] text-white font-semibold py-4 rounded-2xl">
+
+Create Account
+
+</button>
+
+<button
+onclick="loadingRedirect(event,'login.html')"
+class="w-full mt-4 border border-gray-300 text-gray-700 font-semibold py-4 rounded-2xl">
+
+Already have an account? Login
+
+</button>
+
+<div class="flex items-center my-8">
+
+<hr class="flex-1">
+
+<span class="px-4 text-gray-400">
+OR
+</span>
+
+<hr class="flex-1">
+
+</div>
+
+<button
+onclick="googleLogin()"
+class="w-full border border-gray-300 py-4 rounded-2xl flex items-center justify-center gap-3">
+
+<img
+src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+width="22">
+
+Continue with Google
+
+</button>
+
+</div>
+
+</section>
+<!-- FOOTER -->
+
+<footer class="px-5 py-12 bg-[#0a0a0f] text-white">
+
+  <div class="flex items-center gap-3 mb-6">
+
+    <div class="w-8 h-8 bg-[#6366f1] rounded-full flex items-center justify-center text-lg font-bold">
+      L
+    </div>
+
+    <span class="text-xl font-semibold">
+      LogsPanelSuite
+    </span>
+
+  </div>
+
+  <p class="text-gray-400 text-sm mb-10">
+    Your trusted platform for virtual numbers and social media marketing services.
+  </p>
+
+  <div class="grid grid-cols-1 gap-8 text-sm">
+
+    <div>
+
+      <h4 class="font-semibold mb-3">
+        SERVICES
+      </h4>
+
+      <ul class="space-y-2 text-gray-400">
+        <li>Virtual Numbers</li>
+        <li>SMM Services</li>
+        <li>Social Accounts</li>
+        <li>Software Logs</li>
+      </ul>
+
+    </div>
+
+    <div>
+
+      <h4 class="font-semibold mb-3">
+        SUPPORT
+      </h4>
+
+      <ul class="space-y-2 text-gray-400">
+        <li>Help Center</li>
+        <li>Documentation</li>
+        <li>Status Page</li>
+        <li>Contact Us</li>
+      </ul>
+
+    </div>
+
+    <div>
+
+      <h4 class="font-semibold mb-3">
+        LEGAL
+      </h4>
+
+      <ul class="space-y-2 text-gray-400">
+        <li>Terms of Service</li>
+        <li>Privacy Policy</li>
+        <li>Cookie Policy</li>
+        <li>Refund Policy</li>
+      </ul>
+
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- TELEGRAM -->
+
+<a href="https://t.me/+Xbt-w6-TwsozYjY0"
+target="_blank"
+class="fixed bottom-6 right-6 w-14 h-14 bg-[#22d3ee] rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition">
+
+<i class="fa-brands fa-telegram text-3xl text-black"></i>
+
+</a>
+
+<!-- LOADING -->
+
+<div id="loading"
+class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+
+<div class="flex flex-col items-center">
+
+<div class="w-14 h-14 border-4 border-[#6366f1] border-t-transparent rounded-full animate-spin">
+</div>
+
+<p class="text-white mt-4 text-lg">
+
+Loading...
+
+</p>
+
+</div>
+
+</div>
+<script>
+function toggleMenu() {
+  document.getElementById("mobileMenu").classList.toggle("open");
+}
+
+function showLoading(callback) {
+  const loading = document.getElementById("loading");
+
+  loading.classList.remove("hidden");
+
+  setTimeout(() => {
+    loading.classList.add("hidden");
+
+    if (callback) callback();
+
+  }, 1500);
+}
+
+function loadingRedirect(event, page) {
+
+  if (event) event.preventDefault();
+
+  showLoading(() => {
+
+    window.location.href = page;
+
+  });
+
+}
+
+function togglePassword() {
+
+  const password = document.getElementById("password");
+  const eye = document.getElementById("eyeIcon");
+
+  if (password.type === "password") {
+
+    password.type = "text";
+    eye.className = "fa-solid fa-eye-slash";
+
+  } else {
+
+    password.type = "password";
+    eye.className = "fa-solid fa-eye";
+
+  }
+
+}
+</script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-analytics.js";
+
+import {
+  getAuth,
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+  sendEmailVerification
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
+
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyA53ORM49_ecEyokNloQquC2XfCYwuUFfI",
+  authDomain: "logspanelsuite.firebaseapp.com",
+  projectId: "logspanelsuite",
+  storageBucket: "logspanelsuite.firebasestorage.app",
+  messagingSenderId: "927578504424",
+  appId: "1:927578504424:web:bc2d8e9ea4e805ca669d5d",
+  measurementId: "G-1N2G89RHD3"
+};
+
+const app = initializeApp(firebaseConfig);
+getAnalytics(app);
+
+const auth = getAuth(app);
+const db = getFirestore(app);
+const provider = new GoogleAuthProvider();
+
+async function registerUser() {
+
+  const fullname = document.getElementById("fullname").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+  const confirmPassword = document.getElementById("confirmPassword").value;
+
+  if (!fullname || !email || !password || !confirmPassword) {
+    alert("Please fill in all fields.");
+    return;
+  }
+
+  if (password !== confirmPassword) {
+    alert("Passwords do not match.");
+    return;
+  }
+
+  showLoading();
+
+  try {
+
+    const result = await createUserWithEmailAndPassword(auth, email, password);
+
+    await sendEmailVerification(result.user);
+
+    await setDoc(doc(db, "users", result.user.uid), {
+      fullName: fullname,
+      email: email,
+      createdAt: serverTimestamp(),
+      emailVerified: false
+    });
+
+    document.getElementById("loading").classList.add("hidden");
+
+    alert(
+      "🎉 Account created successfully!\n\n" +
+      "A verification email has been sent to your inbox.\n\n" +
+      "If you don't see it, check your Spam/Junk folder.\n\n" +
+      "If it's in Spam, tap 'Not Spam' before opening the verification link.\n\n" +
+      "After verifying your email, sign in to your account."
+    );
+
+    window.location.href = "login.html";
+
+  } catch (error) {
+
+    document.getElementById("loading").classList.add("hidden");
+    alert(error.message);
+
+  }
+
+}
+
+async function googleLogin() {
+
+  showLoading();
+
+  try {
+
+    await signInWithPopup(auth, provider);
+
+    window.location.href = "dashboard.html";
+
+  } catch (error) {
+
+    document.getElementById("loading").classList.add("hidden");
+    alert(error.message);
+
+  }
+
+}
+
+window.registerUser = registerUser;
+window.googleLogin = googleLogin;
+</script>
+
+</body>
+</html>
