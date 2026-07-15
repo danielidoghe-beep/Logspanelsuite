@@ -1,179 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logspanelsuite</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        body { font-family: system-ui, -apple-system, sans-serif; }
-        .hero-bg { background: linear-gradient(135deg, #0f172a 0%, #1e2937 100%); }
-        .card:hover { transform: translateY(-5px); }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LogsPanelSuite</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-[#0a0f1c] text-white">
 
-    <!-- Header -->
-    <header class="bg-[#0a0f1c] border-b border-gray-800">
-        <div class="max-w-screen-2xl mx-auto px-6 py-4 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-2xl font-bold">L</div>
-                <span class="text-2xl font-semibold">Logspanelsuite</span>
-            </div>
-            <div class="flex items-center gap-6">
-                <button class="text-white">Login</button>
-                <button class="w-10 h-10 bg-gray-800 rounded-xl flex items-center justify-center text-xl">☰</button>
-            </div>
-        </div>
-    </header>
+<body>
 
-    <!-- Hero Section -->
-    <section class="hero-bg min-h-screen flex items-center relative px-6">
-        <div class="max-w-5xl mx-auto text-center">
-            <h1 class="text-6xl md:text-[68px] font-bold leading-tight mb-8">
-                The Ultimate Panel Suite<br>for Digital Assets
-            </h1>
-            <p class="text-2xl text-gray-400 mb-16">Trusted by thousands of businesses worldwide.</p>
+<header>
 
-            <div class="max-w-2xl mx-auto flex gap-3 mb-16">
-                <input id="searchInput" type="text" placeholder="Search products..." 
-                       class="flex-1 bg-[#1e2937] border border-gray-700 rounded-2xl px-6 py-5 text-lg focus:outline-none">
-                <button onclick="performSearch()" class="bg-blue-600 hover:bg-blue-500 px-10 rounded-2xl font-semibold">Search</button>
-            </div>
+<nav class="navbar">
 
-            <div class="mb-16">
-                <p class="text-gray-400 mb-5">Trending:</p>
-                <div class="flex flex-wrap gap-3 justify-center">
-                    <span onclick="quickSearch(this)" class="bg-[#1e2937] px-6 py-3 rounded-3xl cursor-pointer hover:bg-gray-600">WhatsApp</span>
-                    <span onclick="quickSearch(this)" class="bg-[#1e2937] px-6 py-3 rounded-3xl cursor-pointer hover:bg-gray-600">Telegram Premium</span>
-                    <span onclick="quickSearch(this)" class="bg-[#1e2937] px-6 py-3 rounded-3xl cursor-pointer hover:bg-gray-600">US Number</span>
-                    <span onclick="quickSearch(this)" class="bg-[#1e2937] px-6 py-3 rounded-3xl cursor-pointer hover:bg-gray-600">Instagram Likes</span>
-                </div>
-            </div>
+<div class="logo">
+<i class="fa-solid fa-layer-group"></i>
+<span>LogsPanelSuite</span>
+</div>
 
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button onclick="getStarted()" class="bg-blue-600 hover:bg-blue-500 px-10 py-5 rounded-2xl text-xl font-semibold">Get Started Free</button>
-                <button onclick="exploreServices()" class="border border-gray-600 hover:bg-gray-800 px-10 py-5 rounded-2xl text-xl font-semibold">Explore Services</button>
-            </div>
-        </div>
+<ul class="nav-links">
 
-        <div class="absolute bottom-12 right-12 bg-blue-500 w-16 h-16 rounded-full flex items-center justify-center text-4xl shadow-2xl">
-            <i class="fab fa-telegram-plane"></i>
-        </div>
-    </section>
+<li><a href="#">Home</a></li>
+<li><a href="#">Marketplace</a></li>
+<li><a href="#">Pricing</a></li>
+<li><a href="#">Features</a></li>
+<li><a href="#">Support</a></li>
 
-    <!-- Market Sectors -->
-    <section class="py-20 px-6 bg-[#0a0f1c]">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-5xl font-bold">Explore Market Sectors</h2>
-                <p class="text-xl text-gray-400 mt-4">Everything you need to scale your digital presence.<br>Browse our comprehensive catalog of verified assets.</p>
-            </div>
+</ul>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-[#1e2937] rounded-3xl p-8 card cursor-pointer" onclick="viewCategory('Social Accounts')">
-                    <div class="flex gap-5">
-                        <div class="w-14 h-14 bg-orange-500/10 rounded-2xl flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-users text-4xl text-orange-400"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-semibold">Social Accounts</h3>
-                            <p class="text-gray-400">Browse Collection</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Add more cards similarly for Virtual Numbers, SMM Orders, Software Logs, Proxy, E-SIM, Streaming, VPN & Security -->
-                <!-- For brevity, full code is in the file. You can duplicate the pattern. -->
-            </div>
-        </div>
-    </section>
+<div class="nav-buttons">
 
-    <!-- Ready to Get Started -->
-    <section class="py-24 px-6 bg-[#1a2338]">
-        <div class="max-w-3xl mx-auto bg-[#1e2937] rounded-3xl p-16 text-center">
-            <h2 class="text-5xl font-bold mb-6">Ready to get started?</h2>
-            <p class="text-xl text-gray-300 mb-12">Join thousands of users leveraging our platform for secure verification and growth.</p>
-            <button onclick="getStarted()" class="bg-black text-white px-12 py-6 rounded-2xl text-2xl font-semibold">Get Started →</button>
-        </div>
-    </section>
+<a href="login.html" class="login-btn">Login</a>
 
-    <!-- Footer -->
-    <footer class="bg-[#0a0f1c] py-16 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
-                <div>
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-xl font-bold">L</div>
-                        <span class="text-2xl font-semibold">Logspanelsuite</span>
-                    </div>
-                    <p class="text-gray-400">Your trusted platform for virtual numbers and social media marketing services.</p>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-6">SERVICES</h4>
-                    <ul class="space-y-3 text-gray-400">
-                        <li>Virtual Numbers</li>
-                        <li>SMM Services</li>
-                        <li>Social Accounts</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-6">SUPPORT</h4>
-                    <ul class="space-y-3 text-gray-400">
-                        <li>Help Center</li>
-                        <li>Documentation</li>
-                        <li>Status Page</li>
-                        <li>Contact Us</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold mb-6">LEGAL</h4>
-                    <ul class="space-y-3 text-gray-400">
-                        <li>Terms of Service</li>
-                        <li>Privacy Policy</li>
-                        <li>Cookie Policy</li>
-                        <li>Refund Policy</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="text-center text-gray-500 mt-20">logspanelsuite.com</div>
-        </div>
-    </footer>
+<a href="signup.html" class="signup-btn">Get Started</a>
 
-    <!-- Firebase -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js";
+</div>
 
-        const firebaseConfig = {
-            apiKey: "AIzaSyA53ORM49_ecEyokNloQquC2XfCYwuUFfI",
-            authDomain: "logspanelsuite.firebaseapp.com",
-            projectId: "logspanelsuite",
-            storageBucket: "logspanelsuite.firebasestorage.app",
-            messagingSenderId: "927578504424",
-            appId: "1:927578504424:web:bc2d8e9ea4e805ca669d5d",
-            measurementId: "G-1N2G89RHD3"
-        };
+</nav>
 
-        initializeApp(firebaseConfig);
-        getAnalytics(initializeApp(firebaseConfig));
+</header>
 
-        function performSearch() {
-            alert("Search functionality ready (Firebase connected)");
-        }
-        function quickSearch(el) {
-            document.getElementById("searchInput").value = el.innerText;
-            performSearch();
-        }
-        function getStarted() {
-            alert("Welcome to Logspanelsuite! (Firebase Auth ready)");
-        }
-        function exploreServices() {
-            window.scrollTo({ top: 800, behavior: 'smooth' });
-        }
-        function viewCategory(name) {
-            alert(`Browsing ${name}...`);
-        }
-    </script>
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>
+The Ultimate Marketplace For Digital Products
+</h1>
+
+<p>
+
+Buy trusted digital services quickly and securely with LogsPanelSuite.
+
+</p>
+
+<div class="search-box">
+
+<input
+type="text"
+placeholder="Search products...">
+
+<button>
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+</button>
+
+</div>
+
+<div class="trending">
+
+<span>Trending:</span>
+
+<a href="#">Netflix</a>
+
+<a href="#">VPN</a>
+
+<a href="#">Proxy</a>
+
+<a href="#">TikTok</a>
+
+<a href="#">Spotify</a>
+
+<a href="#">eSIM</a>
+
+</div>
+
+<div class="hero-buttons">
+
+<a href="signup.html" class="primary">
+
+Start Now
+
+</a>
+
+<a href="#" class="secondary">
+
+Explore
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<script src="js/app.js"></script>
+
 </body>
 </html>
