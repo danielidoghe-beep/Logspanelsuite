@@ -1,1 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - LogsPanelSuite</title>
 
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        body{
+            font-family:system-ui,sans-serif;
+            background:#ffffff;
+        }
+
+        .menu-slide{
+            transform:translateX(100%);
+            transition:.4s;
+        }
+
+        .menu-slide.open{
+            transform:translateX(0);
+        }
+
+        .input-box{
+            width:100%;
+            padding:15px;
+            border:1px solid #d1d5db;
+            border-radius:14px;
+            outline:none;
+            transition:.3s;
+        }
+
+        .input-box:focus{
+            border-color:#6366f1;
+            box-shadow:0 0 0 3px rgba(99,102,241,.2);
+        }
+
+        .main-btn{
+            width:100%;
+            background:#6366f1;
+            color:#fff;
+            padding:15px;
+            border-radius:14px;
+            font-weight:600;
+            transition:.3s;
+        }
+
+        .main-btn:hover{
+            background:#5458ee;
+        }
+
+        .google-btn{
+            width:100%;
+            border:1px solid #ddd;
+            padding:15px;
+            border-radius:14px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            gap:10px;
+            transition:.3s;
+        }
+
+        .google-btn:hover{
+            background:#f7f7f7;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header class="flex items-center justify-between px-5 py-4 border-b bg-[#0a0a0f] text-white">
+
+<div class="flex items-center gap-3">
+
+<div class="w-9 h-9 bg-[#6366f1] rounded-full flex items-center justify-center font-bold text-lg">
+L
+</div>
+
+<span class="text-xl font-semibold">
+LogsPanelSuite
+</span>
+
+</div>
+
+<button onclick="toggleMenu()" class="text-3xl">
+
+<i class="fa-solid fa-bars"></i>
+
+</button>
+
+</header>
+
+<!-- MOBILE MENU -->
+
+<div id="mobileMenu"
+class="menu-slide fixed top-0 right-0 w-80 h-full bg-[#111827] text-white shadow-2xl z-50 p-6">
+
+<button onclick="toggleMenu()"
+class="float-right text-3xl">
+
+<i class="fa-solid fa-xmark"></i>
+
+</button>
+
+<div class="pt-10 space-y-6">
+
+<a href="index.html"
+onclick="loadingRedirect('index.html')"
+class="block">
+Home
+</a>
+
+<a href="#"
+onclick="loadingRedirect('login.html')"
+class="block">
+Login
+</a>
+
+<a href="#"
+onclick="loadingRedirect('register.html')"
+class="block">
+Create Account
+</a>
+
+<a href="#"
+onclick="loadingRedirect('forgot-password.html')"
+class="block">
+Forgot Password
+</a>
+
+</div>
+
+</div>
+
+<!-- LOGIN -->
+
+<section class="max-w-md mx-auto px-6 py-12">
+
+<h1 class="text-4xl font-bold text-center text-[#6366f1]">
+Login
+</h1>
+
+<p class="text-center text-gray-500 mt-3 mb-10">
+Access your dashboard with your credentials.
+</p>
+
+<label class="font-semibold">
+Email Address
+</label>
+
+<input
+type="email"
+id="email"
+placeholder="Enter your email"
+class="input-box mt-2 mb-6">
+
+<label class="font-semibold">
+Password
+</label>
+
+<div class="relative mt-2">
+
+<input
+type="password"
+id="password"
+placeholder="Enter your password"
+class="input-box pr-12">
+
+<button
+type="button"
+onclick="togglePassword()"
+class="absolute right-4 top-4 text-gray-500">
+
+<i id="eyeIcon" class="fa-solid fa-eye"></i>
+
+</button>
+
+</div>
+
+<div class="text-right mt-3">
+
+<a href="#"
+onclick="loadingRedirect('forgot-password.html')"
+class="text-[#6366f1] font-medium">
+
+Forgot Password?
+
+</a>
+
+</div>
+
+<button
+onclick="signInUser()"
+class="main-btn mt-8">
+
+Sign In
+
+</button>
+
+<div class="flex items-center my-8">
+
+<hr class="flex-1">
+
+<span class="px-4 text-gray-500">
+OR
+</span>
+
+<hr class="flex-1">
+
+</div>
+
+<button
+onclick="googleLogin()"
+class="google-btn">
+
+<img
+src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+width="20">
+
+Continue with Google
+
+</button>
+
+<p class="text-center mt-8">
+
+New here?
+
+<a
+href="#"
+onclick="loadingRedirect('register.html')"
+class="text-[#6366f1] font-semibold">
+
+Create an account
+
+</a>
+
+</p>
+
+</section>
+<!-- FOOTER -->
+
+<footer class="px-5 py-12 bg-[#0a0a0f] text-white">
+
+    <div class="flex items-center gap-3 mb-6">
+
+        <div class="w-8 h-8 bg-[#6366f1] rounded-full flex items-center justify-center text-lg font-bold">
+            L
+        </div>
+
+        <span class="text-xl font-semibold">
+            LogsPanelSuite
+        </span>
+
+    </div>
+
+    <p class="text-gray-400 text-sm mb-10">
+        Your trusted platform for virtual numbers and social media marketing services.
+    </p>
+
+    <div class="grid grid-cols-1 gap-8 text-sm">
+
+        <div>
+
+            <h4 class="font-semibold mb-3">
+                SERVICES
+            </h4>
+
+            <ul class="space-y-2 text-gray-400">
+                <li>Virtual Numbers</li>
+                <li>SMM Services</li>
+                <li>Social Accounts</li>
+                <li>Software Logs</li>
+            </ul>
+
+        </div>
+
+        <div>
+
+            <h4 class="font-semibold mb-3">
+                SUPPORT
+            </h4>
+
+            <ul class="space-y-2 text-gray-400">
+                <li>Help Center</li>
+                <li>Documentation</li>
+                <li>Status Page</li>
+                <li>Contact Us</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<!-- TELEGRAM -->
+
+<a href="https://t.me/+Xbt-w6-TwsozYjY0"
+
+target="_blank"
+
+class="fixed bottom-6 right-6 w-14 h-14 bg-[#22d3ee] rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition">
+
+<i class="fa-brands fa-telegram text-3xl text-black"></i>
+
+</a>
+
+<!-- LOADING -->
+
+<div id="loading"
+
+class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+
+<div class="flex flex-col items-center">
+
+<div class="w-14 h-14 border-4 border-[#6366f1] border-t-transparent rounded-full animate-spin"></div>
+
+<p class="mt-4 text-white">
+
+Loading...
+
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+function toggleMenu(){
+
+document.getElementById("mobileMenu").classList.toggle("open");
+
+}
+
+function showLoading(callback){
+
+const loading=document.getElementById("loading");
+
+loading.classList.remove("hidden");
+
+setTimeout(()=>{
+
+loading.classList.add("hidden");
+
+if(callback){
+
+callback();
+
+}
+
+},1500);
+
+}
+
+function loadingRedirect(page){
+
+showLoading(()=>{
+
+window.location.href=page;
+
+});
+
+}
+
+function togglePassword(){
+
+const password=document.getElementById("password");
+
+const eye=document.getElementById("eyeIcon");
+
+if(password.type==="password"){
+
+password.type="text";
+
+eye.className="fa-solid fa-eye-slash";
+
+}else{
+
+password.type="password";
+
+eye.className="fa-solid fa-eye";
+
+}
+
+}
+
+function signInUser(){
+
+showLoading(()=>{
+
+alert("Firebase login will be connected in Part 2.");
+
+});
+
+}
+
+function googleLogin(){
+
+showLoading(()=>{
+
+alert("Google Sign-In will be connected in Part 2.");
+
+});
+
+}
+
+</script>
+
+</body>
+
+</html>
