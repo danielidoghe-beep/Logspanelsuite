@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Transaction History - LogsPanelSuite</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+body{
+background:#0a0a0f;
+font-family:system-ui,sans-serif;
+color:white;
+}
+
+.menu-slide{
+transform:translateX(100%);
+transition:.4s;
+}
+
+.menu-slide.open{
+transform:translateX(0);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- MOBILE MENU -->
+
+<div id="mobileMenu"
+class="menu-slide fixed top-0 right-0 h-full w-80 bg-[#111827] shadow-2xl z-50 p-6">
+
+<button
+onclick="toggleMenu()"
+class="float-right text-3xl">
+
+<i class="fa-solid fa-xmark"></i>
+
+</button>
+
+<div class="space-y-6 text-lg pt-10">
+
+<a href="dashboard.html" class="block py-2">
+Home
+</a>
+
+<a href="wallet.html" class="block py-2">
+Wallet
+</a>
+
+<a href="fund.html" class="block py-2">
+Fund
+</a>
+
+<a href="history.html"
+class="block py-2 text-blue-400">
+History
+</a>
+
+<a href="#" class="block py-2">
+Support
+</a>
+
+</div>
+
+</div>
+
+<!-- HEADER -->
+
+<header class="flex items-center justify-between px-5 py-5 border-b border-gray-800">
+
+<div class="flex items-center gap-3">
+
+<div class="w-10 h-10 rounded-full bg-[#6366f1] flex items-center justify-center font-bold text-xl">
+
+L
+
+</div>
+
+<div>
+
+<h1 class="text-xl font-bold">
+
+LogsPanelSuite
+
+</h1>
+
+<p class="text-xs text-gray-400">
+
+Secure Digital Marketplace
+
+</p>
+
+</div>
+
+</div>
+
+<button
+onclick="toggleMenu()"
+class="text-2xl">
+
+<i class="fa-solid fa-bars"></i>
+
+</button>
+
+</header>
+
+<!-- PAGE HEADER -->
+
+<section class="px-5 pt-8">
+
+<div class="flex items-center gap-3">
+
+<div class="w-14 h-14 rounded-2xl bg-purple-500/20 flex items-center justify-center">
+
+<i class="fa-solid fa-clock-rotate-left text-3xl text-purple-400"></i>
+
+</div>
+
+<div>
+
+<h2 class="text-3xl font-bold">
+
+Transaction History
+
+</h2>
+
+<p class="text-gray-400 text-sm mt-1">
+
+View all your wallet activities.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- TABS -->
+
+<section class="px-5 mt-8">
+
+<div class="grid grid-cols-3 gap-3">
+
+<a href="wallet.html"
+class="bg-[#111827] text-gray-300 font-semibold py-4 rounded-2xl text-center">
+
+Wallet
+
+</a>
+
+<a href="fund.html"
+class="bg-[#111827] text-gray-300 font-semibold py-4 rounded-2xl text-center">
+
+Fund
+
+</a>
+
+<a href="history.html"
+class="bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] text-white font-semibold py-4 rounded-2xl text-center">
+
+History
+
+</a>
+
+</div>
+
+</section>
+<!-- TRANSACTION HEADER -->
+
+<section class="px-5 mt-10">
+
+<h2 class="text-4xl font-bold">
+
+Transaction History
+
+</h2>
+
+<p class="text-gray-400 text-lg mt-3">
+
+Tap a transaction to view its order details
+
+</p>
+
+</section>
+
+<!-- STATISTICS -->
+
+<section class="px-5 mt-8">
+
+<div class="grid grid-cols-2 gap-4">
+
+<!-- Total Transactions -->
+
+<div class="bg-[#111827] rounded-3xl p-5">
+
+<div class="w-14 h-14 rounded-full bg-blue-500/20 flex items-center justify-center mb-4">
+
+<i class="fa-solid fa-clock-rotate-left text-blue-400 text-2xl"></i>
+
+</div>
+
+<p class="text-gray-400">
+
+Total Transactions
+
+</p>
+
+<h2 id="totalTransactions" class="text-3xl font-bold mt-2">
+
+0
+
+</h2>
+
+</div>
+
+<!-- Total Funded -->
+
+<div class="bg-[#111827] rounded-3xl p-5">
+
+<div class="w-14 h-14 rounded-full bg-green-500/20 flex items-center justify-center mb-4">
+
+<i class="fa-solid fa-arrow-up text-green-400 text-2xl"></i>
+
+</div>
+
+<p class="text-gray-400">
+
+Total Funded
+
+</p>
+
+<h2 id="totalFunded" class="text-3xl font-bold mt-2">
+
+₦0.00
+
+</h2>
+
+</div>
+
+<!-- Total Spent -->
+
+<div class="bg-[#111827] rounded-3xl p-5">
+
+<div class="w-14 h-14 rounded-full bg-red-500/20 flex items-center justify-center mb-4">
+
+<i class="fa-solid fa-arrow-down text-red-400 text-2xl"></i>
+
+</div>
+
+<p class="text-gray-400">
+
+Total Spent
+
+</p>
+
+<h2 id="totalSpent" class="text-3xl font-bold text-red-400 mt-2">
+
+₦0.00
+
+</h2>
+
+</div>
+
+<!-- Balance -->
+
+<div class="bg-[#111827] rounded-3xl p-5">
+
+<div class="w-14 h-14 rounded-full bg-gray-500/20 flex items-center justify-center mb-4">
+
+<i class="fa-solid fa-wallet text-gray-300 text-2xl"></i>
+
+</div>
+
+<p class="text-gray-400">
+
+Balance
+
+</p>
+
+<h2 id="walletBalance" class="text-3xl font-bold mt-2">
+
+₦0.00
+
+</h2>
+
+</div>
+
+</div>
+
+</section>
+<!-- TRANSACTION HISTORY -->
+
+<section class="px-5 mt-8 mb-28">
+
+<div class="flex items-center justify-between mb-5">
+
+<div>
+
+<h2 class="text-3xl font-bold">
+Transaction History
+</h2>
+
+<p class="text-gray-400 mt-2">
+Tap a transaction to view its details
+</p>
+
+</div>
+
+</div>
+
+<div class="bg-[#111827] rounded-3xl p-6">
+
+<!-- Search -->
+
+<div class="bg-[#1f2b46] rounded-2xl px-5 py-4 flex items-center gap-3">
+
+<i class="fa-solid fa-magnifying-glass text-gray-400 text-xl"></i>
+
+<input
+type="text"
+placeholder="Search transactions..."
+class="bg-transparent outline-none flex-1 text-lg placeholder:text-gray-400">
+
+</div>
+
+<!-- Filter -->
+
+<div class="grid grid-cols-3 gap-3 mt-5">
+
+<button class="bg-[#3b4d7d] py-4 rounded-2xl font-bold">
+All
+</button>
+
+<button class="bg-[#1b2540] py-4 rounded-2xl text-gray-300 font-semibold">
+↑ Credits
+</button>
+
+<button class="bg-[#1b2540] py-4 rounded-2xl text-gray-300 font-semibold">
+↓ Debits
+</button>
+
+</div>
+
+<hr class="border-gray-700 my-6">
+
+<p class="text-gray-400">
+0 transactions
+</p>
+
+<div class="text-center py-20">
+
+<div class="w-24 h-24 mx-auto rounded-full bg-[#1f2b46] flex items-center justify-center">
+
+<i class="fa-solid fa-clock-rotate-left text-5xl text-blue-400"></i>
+
+</div>
+
+<h3 class="text-3xl font-bold mt-8">
+No transaction history yet
+</h3>
+
+<p class="text-gray-400 mt-3">
+Your deposits and purchases will appear here.
+</p>
+
+</div>
+
+</div>
+
+</section>
+<!-- TRANSACTION LIST -->
+
+<section class="px-5 mt-8 mb-28">
+
+<div class="bg-[#111827] rounded-3xl p-6">
+
+<!-- Search -->
+
+<div class="bg-[#1f2a44] rounded-2xl px-5 py-4 flex items-center gap-3">
+
+<i class="fa-solid fa-magnifying-glass text-gray-400 text-xl"></i>
+
+<input
+type="text"
+placeholder="Search transactions..."
+class="bg-transparent outline-none w-full text-lg placeholder:text-gray-400">
+
+</div>
+
+<!-- Filter -->
+
+<div class="grid grid-cols-3 gap-3 mt-5">
+
+<button class="bg-[#33487d] py-4 rounded-2xl font-bold">
+
+All
+
+</button>
+
+<button class="bg-[#1b2543] py-4 rounded-2xl text-gray-300 font-bold">
+
+↑ Credits
+
+</button>
+
+<button class="bg-[#1b2543] py-4 rounded-2xl text-gray-300 font-bold">
+
+↓ Debits
+
+</button>
+
+</div>
+
+<hr class="border-gray-700 my-6">
+
+<p class="text-gray-400">
+
+0 transactions
+
+</p>
+
+<div class="text-center py-16">
+
+<div class="w-24 h-24 rounded-full bg-[#1b2543] flex items-center justify-center mx-auto">
+
+<i class="fa-solid fa-clock-rotate-left text-5xl text-blue-400"></i>
+
+</div>
+
+<h3 class="text-3xl font-bold mt-8">
+
+No transaction history yet
+
+</h3>
+
+<p class="text-gray-400 mt-3">
+
+Your completed transactions will appear here.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+  <script>
+
+function toggleMenu(){
+document.getElementById("mobileMenu").classList.toggle("open");
+}
+
+</script>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+
+import {
+getAuth,
+onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
+
+import {
+getFirestore,
+doc,
+getDoc
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+const firebaseConfig={
+apiKey:"AIzaSyA53ORM49_ecEyokNloQquC2XfCYwuUFfI",
+authDomain:"logspanelsuite.firebaseapp.com",
+projectId:"logspanelsuite",
+storageBucket:"logspanelsuite.firebasestorage.app",
+messagingSenderId:"927578504424",
+appId:"1:927578504424:web:bc2d8e9ea4e805ca669d5d",
+measurementId:"G-1N2G89RHD3"
+};
+
+const app=initializeApp(firebaseConfig);
+
+const auth=getAuth(app);
+
+const db=getFirestore(app);
+
+onAuthStateChanged(auth,async(user)=>{
+
+if(!user){
+
+window.location.href="login.html";
+return;
+
+}
+
+const snap=await getDoc(doc(db,"users",user.uid));
+
+if(snap.exists()){
+
+const data=snap.data();
+
+document.getElementById("walletBalance").innerText=
+"₦"+Number(data.balance||0).toLocaleString();
+
+document.getElementById("totalFunded").innerText=
+"₦"+Number(data.totalDeposits||0).toLocaleString();
+
+document.getElementById("totalSpent").innerText=
+"₦"+Number(data.totalSpent||0).toLocaleString();
+
+document.getElementById("totalTransactions").innerText=
+Number(data.totalTransactions||0);
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
