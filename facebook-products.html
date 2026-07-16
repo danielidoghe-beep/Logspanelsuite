@@ -56,12 +56,58 @@ Choose an account to purchase.
 </div>
 
 </div>
-<!-- PRODUCT CARD -->
+<div id="products" class="space-y-8">
+
+<p class="text-center text-gray-400 text-xl">
+
+Loading Facebook accounts...
+
+</p>
+
+</div>
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+
+import {
+getFirestore,
+collection,
+getDocs
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+const firebaseConfig = {
+
+apiKey: "AIzaSyA53ORM49_ecEyokNloQquC2XfCYwuUFfI",
+authDomain: "logspanelsuite.firebaseapp.com",
+projectId: "logspanelsuite",
+storageBucket: "logspanelsuite.firebasestorage.app",
+messagingSenderId: "927578504424",
+appId: "1:927578504424:web:bc2d8e9ea4e805ca669d5d"
+
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const products = document.getElementById("products");
+async function loadProducts() {
+
+products.innerHTML = "";
+
+const snapshot = await getDocs(collection(db,"socialAccounts"));
+
+snapshot.forEach((doc)=>{
+
+const data = doc.data();
+
+if(data.platform !== "Facebook") return;
+
+products.innerHTML += `
 
 <div class="bg-[#111827] rounded-3xl overflow-hidden shadow-xl border border-gray-800">
 
 <img
-src="https://placehold.co/800x450/1877F2/FFFFFF?text=Facebook+Account"
+src="${data.imageUrl}"
 class="w-full h-60 object-cover">
 
 <div class="p-6">
@@ -71,14 +117,16 @@ class="w-full h-60 object-cover">
 <i class="fa-brands fa-facebook text-blue-500 text-4xl"></i>
 
 <h2 class="text-3xl font-bold">
-Dating Facebook Account
+
+${data.title}
+
 </h2>
 
 </div>
 
 <p class="text-gray-400 mt-4">
 
-Fresh Facebook account with full login details.
+${data.description}
 
 </p>
 
@@ -114,7 +162,7 @@ Fresh Facebook account with full login details.
 
 <h3 class="text-4xl font-bold text-green-400">
 
-₦12,000
+₦${data.price}
 
 </h3>
 
@@ -130,7 +178,13 @@ Buy Now
 </div>
 
 </div>
-</div>
 
+`;
+
+});
+
+}
+
+loadProducts();
 </body>
 </html>
