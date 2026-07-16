@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fund Wallet - LogsPanelSuite</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+body{
+background:#0a0a0f;
+font-family:system-ui,sans-serif;
+color:white;
+}
+
+.menu-slide{
+transform:translateX(100%);
+transition:.4s;
+}
+
+.menu-slide.open{
+transform:translateX(0);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- MOBILE MENU -->
+
+<div id="mobileMenu"
+class="menu-slide fixed top-0 right-0 h-full w-80 bg-[#111827] shadow-2xl z-50 p-6">
+
+<button onclick="toggleMenu()" class="float-right text-3xl">
+<i class="fa-solid fa-xmark"></i>
+</button>
+
+<div class="space-y-6 text-lg pt-10">
+
+<a href="dashboard.html" class="block py-2">
+Home
+</a>
+
+<a href="wallet.html" class="block py-2">
+Wallet
+</a>
+
+<a href="fund.html" class="block py-2 text-blue-400">
+Fund
+</a>
+
+<a href="#" class="block py-2">
+Support
+</a>
+
+</div>
+
+</div>
+
+<!-- HEADER -->
+
+<header class="flex items-center justify-between px-5 py-5 border-b border-gray-800">
+
+<div class="flex items-center gap-3">
+
+<div class="w-10 h-10 rounded-full bg-[#6366f1] flex items-center justify-center font-bold text-xl">
+
+L
+
+</div>
+
+<div>
+
+<h1 class="text-xl font-bold">
+LogsPanelSuite
+</h1>
+
+<p class="text-xs text-gray-400">
+Secure Digital Marketplace
+</p>
+
+</div>
+
+</div>
+
+<button onclick="toggleMenu()" class="text-2xl">
+<i class="fa-solid fa-bars"></i>
+</button>
+
+</header>
+
+<!-- PAGE HEADER -->
+
+<section class="px-5 pt-8">
+
+<div class="flex items-center gap-3">
+
+<div class="w-14 h-14 rounded-2xl bg-green-500/20 flex items-center justify-center">
+
+<i class="fa-solid fa-money-bill-transfer text-3xl text-green-400"></i>
+
+</div>
+
+<div>
+
+<h2 class="text-3xl font-bold">
+Fund Your Wallet
+</h2>
+
+<p class="text-gray-400 text-sm mt-1">
+Securely fund your wallet using bank transfer.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- TABS -->
+
+<section class="px-5 mt-8">
+
+<div class="grid grid-cols-3 gap-3">
+
+<a href="wallet.html"
+class="bg-[#111827] text-gray-300 font-semibold py-4 rounded-2xl text-center">
+
+Wallet
+
+</a>
+
+<a href="fund.html"
+class="bg-gradient-to-r from-[#6366f1] to-[#8b5cf6] text-white font-semibold py-4 rounded-2xl text-center">
+
+Fund
+
+</a>
+
+<a href="history.html"
+class="bg-[#111827] text-gray-300 font-semibold py-4 rounded-2xl text-center">
+
+History
+
+</a>
+
+</div>
+
+</section>
+<!-- ACCOUNT FUNDING -->
+
+<section class="px-5 mt-8">
+
+<div class="bg-[#0b3d20] border border-green-700 rounded-3xl overflow-hidden">
+
+<div class="flex items-center justify-between p-5 border-b border-green-700">
+
+<div class="flex items-center gap-3">
+
+<div class="w-14 h-14 rounded-2xl bg-green-700 flex items-center justify-center">
+
+<i class="fa-solid fa-building-columns text-yellow-300 text-2xl"></i>
+
+</div>
+
+<div>
+
+<h2 class="text-2xl font-bold">
+Account Funding
+</h2>
+
+<p class="text-green-300 text-sm">
+Transfer to the account below
+</p>
+
+</div>
+
+</div>
+
+<span class="bg-green-600 px-3 py-1 rounded-full text-sm font-semibold">
+Manual
+</span>
+
+</div>
+
+<div class="p-5">
+
+<label class="text-sm text-gray-300">
+Amount (₦)
+</label>
+
+<input
+id="amount"
+type="number"
+placeholder="Enter amount"
+class="w-full mt-2 mb-5 bg-[#124728] rounded-2xl p-4 outline-none text-white">
+
+<label class="text-sm text-gray-300">
+Bank Name
+</label>
+
+<div class="mt-2 bg-[#124728] rounded-2xl p-4 font-bold">
+PalmPay
+</div>
+
+<label class="block mt-5 text-sm text-gray-300">
+Account Name
+</label>
+
+<div class="mt-2 bg-[#124728] rounded-2xl p-4 font-bold">
+Ogaga blessing Idoghe
+</div>
+
+<label class="block mt-5 text-sm text-gray-300">
+Account Number
+</label>
+
+<div class="mt-2 bg-[#124728] rounded-2xl p-4 flex justify-between items-center">
+
+<span id="accountNumber" class="text-2xl font-bold">
+9117412352
+</span>
+
+<button
+onclick="copyAccount()"
+class="bg-green-600 px-4 py-2 rounded-xl">
+
+<i class="fa-regular fa-copy"></i>
+
+</button>
+
+</div>
+
+<div class="mt-5 bg-green-900 rounded-2xl p-4 text-green-300">
+
+✅ After making payment, send your payment receipt to the Admin on WhatsApp for confirmation.
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- CREATE ACCOUNT -->
+
+<section class="px-5 mt-6">
+
+<button
+onclick="alert('Virtual account creation is coming soon.')"
+class="w-full bg-[#111827] rounded-3xl py-5 font-semibold border border-gray-700">
+
+<i class="fa-solid fa-building-columns mr-2 text-green-400"></i>
+
+Create Virtual Account
+
+<span class="text-green-400 ml-2">(Coming Soon)</span>
+
+</button>
+
+</section>
+
+<!-- HOW TO FUND -->
+
+<section class="px-5 mt-8">
+
+<div class="bg-[#111827] rounded-3xl p-6">
+
+<h2 class="text-2xl font-bold mb-5">
+
+How to Fund
+
+</h2>
+
+<div class="space-y-5">
+
+<div class="flex gap-4">
+
+<div class="w-10 h-10 rounded-full bg-[#6366f1] flex items-center justify-center font-bold">
+
+1
+
+</div>
+
+<p class="text-gray-300">
+
+Enter the amount you want to fund.
+
+</p>
+
+</div>
+
+<div class="flex gap-4">
+
+<div class="w-10 h-10 rounded-full bg-[#6366f1] flex items-center justify-center font-bold">
+
+2
+
+</div>
+
+<p class="text-gray-300">
+
+Transfer the money to the PalmPay account displayed above.
+
+</p>
+
+</div>
+
+<div class="flex gap-4">
+
+<div class="w-10 h-10 rounded-full bg-[#6366f1] flex items-center justify-center font-bold">
+
+3
+
+</div>
+
+<p class="text-gray-300">
+
+After payment, tap the WhatsApp button below and send your payment receipt to the Admin. Your wallet balance will be updated after confirmation.
+
+</p>
+
+</div>
+
+</div>
+
+<a
+href="https://wa.me/2349117412352?text=Hello%20Admin,%20I%20have%20made%20payment.%20Here%20is%20my%20receipt."
+target="_blank"
+class="mt-8 w-full bg-green-600 hover:bg-green-700 rounded-2xl py-4 flex items-center justify-center gap-3 font-bold">
+
+<i class="fa-brands fa-whatsapp text-2xl"></i>
+
+Send Receipt to Admin
+
+</a>
+
+</div>
+
+</section>
+<!-- BOTTOM NAVIGATION -->
+
+<nav class="fixed bottom-0 left-0 w-full bg-[#111827] border-t border-gray-800">
+
+<div class="grid grid-cols-5 h-20">
+
+<a href="dashboard.html"
+class="flex flex-col items-center justify-center text-gray-400">
+
+<i class="fa-solid fa-house text-2xl"></i>
+
+<span class="text-xs mt-1">
+Home
+</span>
+
+</a>
+
+<a href="wallet.html"
+class="flex flex-col items-center justify-center text-gray-400">
+
+<i class="fa-solid fa-wallet text-2xl"></i>
+
+<span class="text-xs mt-1">
+Wallet
+</span>
+
+</a>
+
+<a href="fund.html"
+class="flex flex-col items-center justify-center text-blue-500">
+
+<i class="fa-solid fa-money-bill-transfer text-2xl"></i>
+
+<span class="text-xs mt-1 font-semibold">
+Fund
+</span>
+
+</a>
+
+<a href="support.html"
+class="flex flex-col items-center justify-center text-gray-400">
+
+<i class="fa-regular fa-circle-question text-2xl"></i>
+
+<span class="text-xs mt-1">
+Support
+</span>
+
+</a>
+
+<button
+onclick="toggleMenu()"
+class="flex flex-col items-center justify-center text-gray-400">
+
+<i class="fa-solid fa-bars text-2xl"></i>
+
+<span class="text-xs mt-1">
+Menu
+</span>
+
+</button>
+
+</div>
+
+</nav>
+
+<script>
+
+function toggleMenu(){
+document.getElementById("mobileMenu").classList.toggle("open");
+}
+
+function copyAccount(){
+navigator.clipboard.writeText("9117412352");
+alert("Account number copied!");
+}
+
+</script>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+
+import {
+getAuth,
+onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
+
+const firebaseConfig = {
+apiKey: "AIzaSyA53ORM49_ecEyokNloQquC2XfCYwuUFfI",
+authDomain: "logspanelsuite.firebaseapp.com",
+projectId: "logspanelsuite",
+storageBucket: "logspanelsuite.firebasestorage.app",
+messagingSenderId: "927578504424",
+appId: "1:927578504424:web:bc2d8e9ea4e805ca669d5d",
+measurementId: "G-1N2G89RHD3"
+};
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+onAuthStateChanged(auth,(user)=>{
+
+if(!user){
+
+window.location.href="login.html";
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
