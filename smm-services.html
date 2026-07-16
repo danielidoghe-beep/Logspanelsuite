@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SMM Services - LogsPanelSuite</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+body{
+background:#0a1020;
+font-family:system-ui,sans-serif;
+color:white;
+}
+
+.menu-slide{
+transform:translateX(100%);
+transition:.4s;
+}
+
+.menu-slide.open{
+transform:translateX(0);
+}
+
+select{
+background:#111827;
+color:white;
+border:none;
+outline:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- MOBILE MENU -->
+
+<div
+id="mobileMenu"
+class="menu-slide fixed top-0 right-0 h-full w-80 bg-[#111827] shadow-2xl z-50 p-6">
+
+<button
+onclick="toggleMenu()"
+class="float-right text-3xl">
+
+<i class="fa-solid fa-xmark"></i>
+
+</button>
+
+<div class="space-y-6 text-lg pt-10">
+
+<a href="dashboard.html" class="block py-2">Home</a>
+
+<a href="wallet.html" class="block py-2">Wallet</a>
+
+<a href="services.html" class="block py-2">Services</a>
+
+<a href="support.html" class="block py-2">Support</a>
+
+</div>
+
+</div>
+
+<!-- HEADER -->
+
+<header class="flex items-center justify-between px-5 py-5 border-b border-gray-800">
+
+<div>
+
+<h1 class="text-3xl font-bold">
+SMM Services
+</h1>
+
+<p class="text-gray-400 mt-1">
+Order social media services easily.
+</p>
+
+</div>
+
+<button
+onclick="toggleMenu()"
+class="text-2xl">
+
+<i class="fa-solid fa-bars"></i>
+
+</button>
+
+</header>
+
+<script>
+
+function toggleMenu(){
+
+document.getElementById("mobileMenu").classList.toggle("open");
+
+}
+
+</script>
+<!-- ORDER CARD -->
+
+<section class="px-5 mt-8">
+
+<div class="bg-[#111827] rounded-[35px] p-7">
+
+<h2 class="text-3xl font-bold">
+Place Your Order
+</h2>
+
+<p class="text-gray-400 mt-2">
+Select your platform and service below.
+</p>
+
+<!-- PLATFORM -->
+
+<div class="mt-8">
+
+<label class="text-gray-300 font-semibold">
+Platform
+</label>
+
+<select
+id="platform"
+class="w-full mt-3 rounded-2xl p-4">
+
+<option>TikTok</option>
+<option>Instagram</option>
+<option>Facebook</option>
+<option>YouTube</option>
+<option>Telegram</option>
+<option>WhatsApp</option>
+<option>Twitter (X)</option>
+<option>Snapchat</option>
+
+</select>
+
+</div>
+
+<!-- SERVICE -->
+
+<div class="mt-6">
+
+<label class="text-gray-300 font-semibold">
+Service
+</label>
+
+<select
+id="service"
+class="w-full mt-3 rounded-2xl p-4">
+
+<option>Followers</option>
+<option>Likes</option>
+<option>Views</option>
+<option>Comments</option>
+<option>Subscribers</option>
+<option>Members</option>
+<option>Shares</option>
+<option>Watch Time</option>
+
+</select>
+
+</div>
+
+<!-- QUANTITY -->
+
+<div class="mt-6">
+
+<label class="text-gray-300 font-semibold">
+Quantity Needed
+</label>
+
+<input
+id="quantity"
+type="number"
+placeholder="Example: 1000"
+class="w-full mt-3 rounded-2xl p-4 bg-[#0f172a] text-white outline-none">
+
+</div>
+
+<!-- LINK -->
+
+<div class="mt-6">
+
+<label class="text-gray-300 font-semibold">
+Post / Profile Link
+</label>
+
+<input
+id="link"
+type="text"
+placeholder="Paste your link here..."
+class="w-full mt-3 rounded-2xl p-4 bg-[#0f172a] text-white outline-none">
+
+</div>
+
+</div>
+
+</section>
+<!-- ORDER BUTTON -->
+
+<section class="px-5 mt-8 mb-32">
+
+<button
+onclick="sendOrder()"
+class="w-full bg-gradient-to-r from-green-500 to-emerald-500 py-5 rounded-3xl text-xl font-bold">
+
+<i class="fa-brands fa-whatsapp mr-2"></i>
+
+Order on WhatsApp
+
+</button>
+
+<p class="text-center text-gray-400 text-sm mt-4">
+
+You will discuss pricing with the admin before payment.
+
+</p>
+
+</section>
+
+<script>
+
+function sendOrder(){
+
+const platform=document.getElementById("platform").value;
+const service=document.getElementById("service").value;
+const quantity=document.getElementById("quantity").value;
+const link=document.getElementById("link").value;
+
+if(quantity===""){
+
+alert("Please enter the quantity.");
+return;
+
+}
+
+if(link===""){
+
+alert("Please paste your link.");
+return;
+
+}
+
+const phone="2349117412352";
+
+const message=`Hello Admin,
+
+I want to order an SMM Service.
+
+Platform: ${platform}
+
+Service: ${service}
+
+Quantity: ${quantity}
+
+Link: ${link}
+
+Please tell me the price.`;
+
+window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`,"_blank");
+
+}
+
+</script>
+<!-- BOTTOM NAVIGATION -->
+
+<nav class="fixed bottom-0 left-0 w-full bg-[#111827] border-t border-gray-800">
+
+<div class="grid grid-cols-5 h-20">
+
+<a href="dashboard.html"
+class="flex flex-col items-center justify-center text-gray-400">
+
+<i class="fa-solid fa-house text-2xl"></i>
+
+<span class="text-xs mt-1">
+Home
+</span>
+
+</a>
+
+<a href="wallet.html"
+class="flex flex-col items-center justify-center text-gray-400">
+
+<i class="fa-solid fa-wallet text-2xl"></i>
+
+<span class="text-xs mt-1">
+Wallet
+</span>
+
+</a>
+
+<a href="services.html"
+class="flex flex-col items-center justify-center text-blue-500">
+
+<i class="fa-solid fa-layer-group text-2xl"></i>
+
+<span class="text-xs mt-1 font-semibold">
+Services
+</span>
+
+</a>
+
+<a href="support.html"
+class="flex flex-col items-center justify-center text-gray-400">
+
+<i class="fa-regular fa-circle-question text-2xl"></i>
+
+<span class="text-xs mt-1">
+Support
+</span>
+
+</a>
+
+<button
+onclick="toggleMenu()"
+class="flex flex-col items-center justify-center text-gray-400">
+
+<i class="fa-solid fa-bars text-2xl"></i>
+
+<span class="text-xs mt-1">
+Menu
+</span>
+
+</button>
+
+</div>
+
+</nav>
+
+</body>
+</html>
