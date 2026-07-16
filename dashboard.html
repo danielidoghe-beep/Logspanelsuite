@@ -525,7 +525,134 @@ Menu
 </div>
 
 </div>
+<!-- SIDE MENU -->
 
+<div id="mobileMenu"
+class="fixed top-0 right-0 w-[90%] max-w-md h-full bg-[#181c23] z-50 translate-x-full transition-transform duration-300 overflow-y-auto">
+
+<div class="p-6">
+<!-- PROFILE -->
+
+<div class="bg-[#22262d] rounded-3xl p-5 mt-8">
+
+<div class="flex items-center gap-4">
+
+<div class="w-16 h-16 rounded-2xl bg-yellow-500 flex items-center justify-center text-4xl font-bold text-black">
+
+D
+
+</div>
+
+<div>
+
+<h2 id="menuName" class="text-3xl font-bold">
+
+Loading...
+
+</h2>
+
+<p id="menuEmail" class="text-gray-400">
+
+Loading...
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- QUICK NAVIGATION -->
+
+<h3 class="text-gray-500 font-bold tracking-widest mt-10 mb-5">
+
+QUICK NAVIGATION
+<a href="virtual-numbers.html" class="flex items-center gap-5 py-5 border-b border-gray-800">
+
+<span class="text-3xl">📞</span>
+
+<span class="text-2xl">
+
+Virtual Numbers
+
+</span>
+
+</a>
+
+<a href="smm.html" class="flex items-center gap-5 py-5 border-b border-gray-800">
+
+<span class="text-3xl">📈</span>
+
+<span class="text-2xl">
+
+SMM Services
+
+</span>
+
+</a>
+
+<a href="social-accounts.html" class="flex items-center gap-5 py-5 border-b border-gray-800">
+
+<span class="text-3xl">👥</span>
+
+<span class="text-2xl">
+
+Social Accounts
+
+</span>
+
+</a>
+
+<a href="social-accounts2.html" class="flex items-center gap-5 py-5 border-b border-gray-800">
+
+<span class="text-3xl">👥</span>
+
+<span class="text-2xl">
+
+Social Accounts 2
+
+</span>
+
+</a>
+
+<a href="settings.html" class="flex items-center gap-5 py-5">
+<button
+id="logoutBtn"
+class="w-full mt-8 bg-red-500/10 border border-red-500/30 rounded-3xl p-5 text-red-400 text-2xl font-bold">
+
+🚪 Logout
+
+</button>
+<span class="text-3xl">⚙️</span>
+
+<span class="text-2xl">
+
+Settings
+
+</span>
+
+</a>
+</h3>
+<div class="flex justify-between items-center">
+
+<h2 class="text-2xl font-bold">
+
+Menu
+
+</h2>
+
+<button onclick="toggleMenu()">
+
+<i class="fa-solid fa-xmark text-3xl"></i>
+
+</button>
+
+</div>
+
+</div>
+
+</div>
 <!-- LOADING -->
 
 <div id="loading"
@@ -565,7 +692,9 @@ if(callback) callback();
 
 function toggleMenu(){
 
-alert("Menu page coming soon.");
+document
+.getElementById("mobileMenu")
+.classList.toggle("translate-x-full");
 
 }
 
@@ -680,7 +809,11 @@ data.completedOrders||0;
 
 document.getElementById("accountsPurchased").innerText=
 data.accountsPurchased||0;
+document.getElementById("menuName").innerText =
+data.fullName;
 
+document.getElementById("menuEmail").innerText =
+user.email;
 }else{
 
 window.realBalance="₦0.00";
@@ -688,7 +821,13 @@ window.realBalance="₦0.00";
 }
 
 });
+document.getElementById("logoutBtn").onclick = async () => {
 
+await signOut(auth);
+
+window.location.href = "login.html";
+
+};
 </script>
 
 </body>
