@@ -486,16 +486,14 @@ class="flex flex-col items-center text-gray-400">
 Wallet
 </span>
 
-</button>
-
-<button onclick="showLoading()" class="flex flex-col items-center text-gray-400">
+<button
+onclick="showLoading(() => window.location.href='services.html')"
+class="flex flex-col items-center text-gray-400">
 
 <i class="fa-solid fa-layer-group text-2xl"></i>
 
 <span class="text-xs mt-1">
-
 Services
-
 </span>
 
 </button>
