@@ -191,7 +191,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/fireba
 import {
 getFirestore,
 collection,
-addDoc
+addDoc,
+serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -210,6 +211,64 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
 const publishBtn = document.getElementById("publishBtn");
+const imageUrl = document.getElementById("imageUrl");
+const platform = document.getElementById("platform");
+const category = document.getElementById("category");
+const title = document.getElementById("title");
+const price = document.getElementById("price");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+const twofa = document.getElementById("twofa");
+const description = document.getElementById("description");
+
+publishBtn.addEventListener("click", async () => {
+
+  if (
+    !imageUrl.value ||
+    !title.value ||
+    !price.value
+  ) {
+    alert("Please fill in the required fields.");
+    return;
+  }
+
+  try {
+
+    await addDoc(collection(db, "socialAccounts"), {
+
+      imageUrl: imageUrl.value.trim(),
+      platform: platform.value,
+      category: category.value.trim(),
+      title: title.value.trim(),
+      price: Number(price.value),
+      email: email.value.trim(),
+      password: password.value.trim(),
+      twofa: twofa.value.trim(),
+      description: description.value.trim(),
+      status: "available",
+      createdAt: serverTimestamp()
+
+    });
+
+    alert("Account published successfully!");
+
+    imageUrl.value = "";
+    category.value = "";
+    title.value = "";
+    price.value = "";
+    email.value = "";
+    password.value = "";
+    twofa.value = "";
+    description.value = "";
+
+  } catch (error) {
+
+    console.error(error);
+    alert("Failed to publish account.");
+
+  }
+
+});
 </script>
 </body>
 </html>
