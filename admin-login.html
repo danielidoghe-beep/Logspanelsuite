@@ -1,1 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Login</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+body{
+background:#0a1020;
+font-family:system-ui,sans-serif;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="bg-[#111827] p-8 rounded-3xl w-full max-w-md">
+
+<h1 class="text-4xl font-bold text-center">
+Admin Login
+</h1>
+
+<p class="text-center text-gray-400 mt-2">
+Login to your admin panel
+</p>
+
+<input
+id="email"
+type="email"
+placeholder="Admin Email"
+class="w-full bg-[#1f2937] p-4 rounded-2xl mt-8">
+
+<input
+id="password"
+type="password"
+placeholder="Password"
+class="w-full bg-[#1f2937] p-4 rounded-2xl mt-5">
+
+<button
+id="loginBtn"
+class="w-full bg-blue-600 py-4 rounded-2xl mt-6 text-xl font-bold">
+
+Login
+
+</button>
+
+<p
+id="message"
+class="text-center text-red-400 mt-5"></p>
+
+</div>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+
+import {
+getAuth,
+signInWithEmailAndPassword,
+signOut
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
+
+const firebaseConfig = {
+
+apiKey: "AIzaSyA53ORM49_ecEyokNloQquC2XfCYwuUFfI",
+authDomain: "logspanelsuite.firebaseapp.com",
+projectId: "logspanelsuite",
+storageBucket: "logspanelsuite.firebasestorage.app",
+messagingSenderId: "927578504424",
+appId: "1:927578504424:web:bc2d8e9ea4e805ca669d5d"
+
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+const ADMIN_EMAIL = "d96232345@gmail.com";
+
+document.getElementById("loginBtn").onclick = async ()=>{
+
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
+const message = document.getElementById("message");
+
+message.textContent = "";
+
+try{
+
+const userCredential = await signInWithEmailAndPassword(
+auth,
+email,
+password
+);
+
+if(userCredential.user.email !== ADMIN_EMAIL){
+
+await signOut(auth);
+
+message.textContent="Access denied.";
+
+return;
+
+}
+
+window.location.href="admin.html";
+
+}catch(error){
+
+message.textContent="Invalid email or password.";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
