@@ -211,6 +211,51 @@ Exit the admin panel.
 </div>
 
 </div>
+<script type="module">
 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+
+import {
+getAuth,
+onAuthStateChanged,
+signOut
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
+
+const firebaseConfig = {
+
+apiKey:"AIzaSyA53ORM49_ecEyokNloQquC2XfCYwuUFfI",
+authDomain:"logspanelsuite.firebaseapp.com",
+projectId:"logspanelsuite",
+storageBucket:"logspanelsuite.firebasestorage.app",
+messagingSenderId:"927578504424",
+appId:"1:927578504424:web:bc2d8e9ea4e805ca669d5d"
+
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+const ADMIN_EMAIL = "d96232345@gmail.com";
+
+onAuthStateChanged(auth, async(user)=>{
+
+if(!user){
+
+window.location.href="admin-login.html";
+return;
+
+}
+
+if(user.email !== ADMIN_EMAIL){
+
+await signOut(auth);
+
+window.location.href="admin-login.html";
+
+}
+
+});
+
+</script>
 </body>
 </html>
