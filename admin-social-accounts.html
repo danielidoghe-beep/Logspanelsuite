@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin - Social Accounts</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+body{
+background:#0a1020;
+font-family:system-ui,sans-serif;
+color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="max-w-4xl mx-auto p-6">
+
+<div class="flex items-center justify-between">
+
+<h1 class="text-4xl font-bold">
+
+Admin Panel
+
+</h1>
+
+<a href="admin.html"
+class="text-blue-400">
+
+← Dashboard
+
+</a>
+
+</div>
+
+<p class="text-gray-400 mt-3">
+
+Upload and manage social accounts.
+
+</p>
+<div class="bg-[#111827] rounded-3xl p-8 mt-8">
+
+<h2 class="text-2xl font-bold mb-6">
+
+Upload Social Account
+
+</h2>
+<label class="block mb-2">
+
+Image URL (Postimages)
+
+</label>
+
+<input
+id="imageUrl"
+type="text"
+placeholder="Paste your Postimages image link here"
+
+class="w-full bg-[#1f2937] p-4 rounded-2xl mb-5">
+  <label class="block mb-2">
+
+Platform
+
+</label>
+
+<select
+id="platform"
+class="w-full bg-[#1f2937] p-4 rounded-2xl mb-5">
+
+<option>Facebook</option>
+<option>Instagram</option>
+<option>TikTok</option>
+<option>Telegram</option>
+<option>Twitter</option>
+
+</select>
+
+<label class="block mb-2">
+
+Category
+
+</label>
+
+<input
+id="category"
+type="text"
+placeholder="Dating Facebook"
+
+class="w-full bg-[#1f2937] p-4 rounded-2xl mb-5">
+
+<label class="block mb-2">
+
+Title
+
+</label>
+
+<input
+id="title"
+type="text"
+placeholder="USA Facebook Account"
+
+class="w-full bg-[#1f2937] p-4 rounded-2xl mb-5">
+
+<label class="block mb-2">
+
+Price (₦)
+
+</label>
+
+<input
+id="price"
+type="number"
+
+class="w-full bg-[#1f2937] p-4 rounded-2xl mb-5">
+
+<label class="block mb-2">
+
+Email
+
+</label>
+
+<input
+id="email"
+type="text"
+
+class="w-full bg-[#1f2937] p-4 rounded-2xl mb-5">
+
+<label class="block mb-2">
+
+Password
+
+</label>
+
+<input
+id="password"
+type="text"
+
+class="w-full bg-[#1f2937] p-4 rounded-2xl mb-5">
+
+<label class="block mb-2">
+
+2FA
+
+</label>
+
+<input
+id="twofa"
+type="text"
+
+class="w-full bg-[#1f2937] p-4 rounded-2xl mb-5">
+
+<label class="block mb-2">
+
+Description
+
+</label>
+
+<textarea
+id="description"
+
+class="w-full bg-[#1f2937] p-4 rounded-2xl mb-5 h-40">
+
+</textarea>
+
+<button
+id="publishBtn"
+  class="w-full bg-blue-600 py-4 rounded-2xl text-xl font-bold">
+
+Publish Account
+
+</button>
+
+</div>
+</div>
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+
+import {
+getFirestore,
+collection,
+addDoc
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+const firebaseConfig = {
+
+apiKey: "AIzaSyA53ORM49_ecEyokNloQquC2XfCYwuUFfI",
+authDomain: "logspanelsuite.firebaseapp.com",
+projectId: "logspanelsuite",
+storageBucket: "logspanelsuite.firebasestorage.app",
+messagingSenderId: "927578504424",
+appId: "1:927578504424:web:bc2d8e9ea4e805ca669d5d",
+measurementId: "G-1N2G89RHD3"
+
+};
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+const publishBtn = document.getElementById("publishBtn");
+</script>
+</body>
+</html>
