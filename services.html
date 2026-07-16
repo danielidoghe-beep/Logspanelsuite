@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Services - DexPanelSuite</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+body{
+background:#0a1020;
+font-family:system-ui,sans-serif;
+color:white;
+}
+
+.menu-slide{
+transform:translateX(100%);
+transition:.4s;
+}
+
+.menu-slide.open{
+transform:translateX(0);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- MOBILE MENU -->
+
+<div
+id="mobileMenu"
+class="menu-slide fixed top-0 right-0 h-full w-80 bg-[#111827] shadow-2xl z-50 p-6">
+
+<button
+onclick="toggleMenu()"
+class="float-right text-3xl">
+
+<i class="fa-solid fa-xmark"></i>
+
+</button>
+
+<div class="space-y-6 text-lg pt-10">
+
+<a href="dashboard.html" class="block py-2">
+Home
+</a>
+
+<a href="wallet.html" class="block py-2">
+Wallet
+</a>
+
+<a href="services.html" class="block py-2 text-blue-400">
+Services
+</a>
+
+<a href="support.html" class="block py-2">
+Support
+</a>
+
+</div>
+
+</div>
+
+<!-- HEADER -->
+
+<header
+class="flex items-center justify-between px-8 py-6 border-b border-gray-800">
+
+<h1 class="text-4xl font-bold">
+DexPanelSuite
+</h1>
+
+<button
+onclick="toggleMenu()"
+class="w-16 h-16 rounded-3xl bg-[#1f2937] flex items-center justify-center">
+
+<i class="fa-solid fa-bars text-3xl"></i>
+
+</button>
+
+</header>
+
+<script>
+
+function toggleMenu(){
+
+document.getElementById("mobileMenu").classList.toggle("open");
+
+}
+
+</script>
+<!-- HERO CARD -->
+
+<section class="px-5 mt-8">
+
+<div class="bg-gradient-to-br from-[#1b2d5a] to-[#10182d] border border-blue-900 rounded-[35px] p-8">
+
+<h2 class="text-6xl font-bold leading-tight">
+
+Explore All Services
+
+</h2>
+
+<p class="text-gray-400 text-2xl mt-6 leading-relaxed">
+
+Choose a service category below to continue into Virtual Numbers, SMM Services, Social Accounts or Social Accounts 2.
+
+</p>
+
+<div class="flex gap-4 mt-10 flex-wrap">
+
+<a href="#virtualNumbers"
+
+class="bg-blue-600 hover:bg-blue-500 px-8 py-5 rounded-3xl text-2xl font-bold">
+
+Go to Virtual Numbers
+
+</a>
+
+<a href="#smmServices"
+
+class="bg-[#232d49] border border-gray-700 px-8 py-5 rounded-3xl text-2xl font-bold">
+
+Open SMM Services
+
+</a>
+
+</div>
+
+<!-- SERVICE OVERVIEW -->
+
+<div class="mt-12 bg-[#1b233d] rounded-[30px] p-8">
+
+<h3 class="text-gray-400 text-xl mb-8">
+
+Service Overview
+
+</h3>
+
+<div class="grid grid-cols-2 gap-8">
+
+<div>
+
+<h4 class="text-5xl font-bold">
+
+145
+
+</h4>
+
+<p class="text-gray-400 mt-2 text-xl">
+
+Countries
+
+</p>
+
+</div>
+
+<div>
+
+<h4 class="text-5xl font-bold">
+
+2247
+
+</h4>
+
+<p class="text-gray-400 mt-2 text-xl">
+
+SMM Services
+
+</p>
+
+</div>
+
+<div>
+
+<h4 class="text-5xl font-bold">
+
+21
+
+</h4>
+
+<p class="text-gray-400 mt-2 text-xl">
+
+Social Platforms
+
+</p>
+
+</div>
+
+<div>
+
+<h4 class="text-5xl font-bold">
+
+13
+
+</h4>
+
+<p class="text-gray-400 mt-2 text-xl">
+
+Social Platforms 2
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- VIRTUAL NUMBERS -->
+
+<section id="virtualNumbers" class="px-5 mt-8">
+
+<div class="bg-[#111827] rounded-[35px] p-7">
+
+<div class="flex items-center justify-between">
+
+<div>
+
+<h2 class="text-4xl font-bold">
+
+Virtual Numbers
+
+</h2>
+
+<p class="text-gray-400 text-xl mt-3">
+
+Receive SMS verification codes instantly.
+
+</p>
+
+</div>
+
+<div class="w-20 h-20 rounded-3xl bg-blue-500/20 flex items-center justify-center">
+
+<i class="fa-solid fa-mobile-screen-button text-4xl text-blue-400"></i>
+
+</div>
+
+</div>
+
+<div class="mt-8 flex items-center justify-between">
+
+<div>
+
+<p class="text-gray-500 text-lg">
+
+Available Countries
+
+</p>
+
+<h3 class="text-5xl font-bold mt-2">
+
+145+
+
+</h3>
+
+</div>
+
+<a href="#"
+
+class="bg-blue-600 hover:bg-blue-500 px-8 py-5 rounded-3xl text-xl font-bold">
+
+Browse →
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SMM SERVICES -->
+
+<section id="smmServices" class="px-5 mt-6">
+
+<div class="bg-[#111827] rounded-[35px] p-7">
+
+<div class="flex items-center justify-between">
+
+<div>
+
+<h2 class="text-4xl font-bold">
+
+SMM Services
+
+</h2>
+
+<p class="text-gray-400 text-xl mt-3">
+
+Grow your social media accounts faster.
+
+</p>
+
+</div>
+
+<div class="w-20 h-20 rounded-3xl bg-purple-500/20 flex items-center justify-center">
+
+<i class="fa-solid fa-chart-line text-4xl text-purple-400"></i>
+
+</div>
+
+</div>
+
+<div class="mt-8 flex items-center justify-between">
+
+<div>
+
+<p class="text-gray-500 text-lg">
+
+Available Services
+
+</p>
+
+<h3 class="text-5xl font-bold mt-2">
+
+2247+
+
+</h3>
+
+</div>
+
+<button
+
+class="bg-purple-600 px-8 py-5 rounded-3xl text-xl font-bold">
+
+Browse →
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+<!-- SOCIAL ACCOUNTS -->
+
+<section class="px-5 mt-6">
+
+<div class="bg-[#111827] rounded-[35px] p-7">
+
+<div class="flex items-center justify-between">
+
+<div>
+
+<h2 class="text-4xl font-bold">
+Social Accounts
+</h2>
+
+<p class="text-gray-400 text-xl mt-3">
+Purchase quality verified social media accounts.
+</p>
+
+</div>
+
+<div class="w-20 h-20 rounded-3xl bg-orange-500/20 flex items-center justify-center">
+
+<i class="fa-solid fa-users text-4xl text-orange-400"></i>
+
+</div>
+
+</div>
+
+<div class="mt-8 flex items-center justify-between">
+
+<div>
+
+<p class="text-gray-500 text-lg">
+Platforms
+</p>
+
+<h3 class="text-5xl font-bold mt-2">
+21+
+</h3>
+
+</div>
+
+<button
+class="bg-orange-500 px-8 py-5 rounded-3xl text-xl font-bold">
+
+Browse →
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SOCIAL ACCOUNTS 2 -->
+
+<section class="px-5 mt-6">
+
+<div class="bg-[#111827] rounded-[35px] p-7">
+
+<div class="flex items-center justify-between">
+
+<div>
+
+<h2 class="text-4xl font-bold">
+Social Accounts 2
+</h2>
+
+<p class="text-gray-400 text-xl mt-3">
+Premium account collection with additional platforms.
+</p>
+
+</div>
+
+<div class="w-20 h-20 rounded-3xl bg-pink-500/20 flex items-center justify-center">
+
+<i class="fa-solid fa-user-group text-4xl text-pink-400"></i>
+
+</div>
+
+</div>
+
+<div class="mt-8 flex items-center justify-between">
+
+<div>
+
+<p class="text-gray-500 text-lg">
+Platforms
+</p>
+
+<h3 class="text-5xl font-bold mt-2">
+13+
+</h3>
+
+</div>
+
+<button
+class="bg-pink-600 px-8 py-5 rounded-3xl text-xl font-bold">
+
+Browse →
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- LATEST UPDATES -->
+
+<section class="px-5 mt-8 mb-32">
+
+<h2 class="text-3xl font-bold mb-5">
+Latest Updates
+</h2>
+
+<div class="space-y-4">
+
+<div class="bg-[#111827] rounded-3xl p-6">
+
+<div class="flex items-center gap-4">
+
+<div class="w-14 h-14 rounded-2xl bg-blue-500/20 flex items-center justify-center">
+
+<i class="fa-solid fa-bullhorn text-blue-400 text-2xl"></i>
+
+</div>
+
+<div>
+
+<h3 class="font-bold text-xl">
+Platform News
+</h3>
+
+<p class="text-gray-400 mt-1">
+New services and products will be added regularly.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="bg-[#111827] rounded-3xl p-6">
+
+<div class="flex items-center gap-4">
+
+<div class="w-14 h-14 rounded-2xl bg-green-500/20 flex items-center justify-center">
+
+<i class="fa-solid fa-wallet text-green-400 text-2xl"></i>
+
+</div>
+
+<div>
+
+<h3 class="font-bold text-xl">
+Wallet Funding
+</h3>
+
+<p class="text-gray-400 mt-1">
+Send your payment receipt on WhatsApp after funding.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- BOTTOM NAVIGATION -->
+
+<nav class="fixed bottom-0 left-0 w-full bg-[#111827] border-t border-gray-800">
+
+<div class="grid grid-cols-5 h-20">
+
+<a href="dashboard.html"
+class="flex flex-col items-center justify-center text-gray-400">
+
+<i class="fa-solid fa-house text-2xl"></i>
+
+<span class="text-xs mt-1">Home</span>
+
+</a>
+
+<a href="wallet.html"
+class="flex flex-col items-center justify-center text-gray-400">
+
+<i class="fa-solid fa-wallet text-2xl"></i>
+
+<span class="text-xs mt-1">Wallet</span>
+
+</a>
+
+<a href="services.html"
+class="flex flex-col items-center justify-center text-blue-500">
+
+<i class="fa-solid fa-layer-group text-2xl"></i>
+
+<span class="text-xs mt-1 font-semibold">Services</span>
+
+</a>
+
+<a href="support.html"
+class="flex flex-col items-center justify-center text-gray-400">
+
+<i class="fa-regular fa-circle-question text-2xl"></i>
+
+<span class="text-xs mt-1">Support</span>
+
+</a>
+
+<button
+onclick="toggleMenu()"
+class="flex flex-col items-center justify-center text-gray-400">
+
+<i class="fa-solid fa-bars text-2xl"></i>
+
+<span class="text-xs mt-1">Menu</span>
+
+</button>
+
+</div>
+
+</nav>
+
+</body>
+</html>
