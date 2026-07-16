@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Virtual Numbers - LogsPanelSuite</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+body{
+background:#0a1020;
+font-family:system-ui,sans-serif;
+color:white;
+}
+
+.menu-slide{
+transform:translateX(100%);
+transition:.4s;
+}
+
+.menu-slide.open{
+transform:translateX(0);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- MOBILE MENU -->
+
+<div
+id="mobileMenu"
+class="menu-slide fixed top-0 right-0 h-full w-80 bg-[#111827] shadow-2xl z-50 p-6">
+
+<button
+onclick="toggleMenu()"
+class="float-right text-3xl">
+
+<i class="fa-solid fa-xmark"></i>
+
+</button>
+
+<div class="space-y-6 text-lg pt-10">
+
+<a href="dashboard.html" class="block py-2">
+Home
+</a>
+
+<a href="wallet.html" class="block py-2">
+Wallet
+</a>
+
+<a href="services.html" class="block py-2 text-blue-400">
+Services
+</a>
+
+<a href="support.html" class="block py-2">
+Support
+</a>
+
+</div>
+
+</div>
+
+<!-- HEADER -->
+
+<header
+class="flex items-center justify-between px-6 py-6 border-b border-gray-800">
+
+<div>
+
+<h1 class="text-3xl font-bold">
+Virtual Numbers
+</h1>
+
+<p class="text-gray-400 mt-2">
+Order SMS verification numbers instantly.
+</p>
+
+</div>
+
+<button
+onclick="toggleMenu()"
+class="w-14 h-14 rounded-2xl bg-[#1f2937] flex items-center justify-center">
+
+<i class="fa-solid fa-bars text-2xl"></i>
+
+</button>
+
+</header>
+
+<script>
+
+function toggleMenu(){
+
+document.getElementById("mobileMenu").classList.toggle("open");
+
+}
+
+</script>
+<!-- ORDER CARD -->
+
+<section class="px-5 mt-8">
+
+<div class="bg-[#111827] rounded-[35px] p-7">
+
+<div class="flex items-center gap-4 mb-6">
+
+<div class="w-16 h-16 rounded-3xl bg-blue-500/20 flex items-center justify-center">
+
+<i class="fa-solid fa-mobile-screen-button text-3xl text-blue-400"></i>
+
+</div>
+
+<div>
+
+<h2 class="text-3xl font-bold">
+Order Virtual Number
+</h2>
+
+<p class="text-gray-400 mt-2">
+Select your preferred country and service below.
+</p>
+
+</div>
+
+</div>
+
+<!-- COUNTRY -->
+
+<label class="block text-gray-300 mb-3 text-lg">
+
+Select Country
+
+</label>
+
+<select
+id="country"
+class="w-full bg-[#1f2937] rounded-2xl p-5 text-lg outline-none">
+
+<option>Nigeria 🇳🇬</option>
+
+<option>United States 🇺🇸</option>
+
+<option>United Kingdom 🇬🇧</option>
+
+<option>Canada 🇨🇦</option>
+
+<option>India 🇮🇳</option>
+
+<option>France 🇫🇷</option>
+
+<option>Germany 🇩🇪</option>
+
+<option>Russia 🇷🇺</option>
+
+<option>Brazil 🇧🇷</option>
+
+<option>South Africa 🇿🇦</option>
+
+</select>
+
+<!-- SERVICE -->
+
+<label class="block text-gray-300 mt-8 mb-3 text-lg">
+
+Select Service
+
+</label>
+
+<select
+id="service"
+class="w-full bg-[#1f2937] rounded-2xl p-5 text-lg outline-none">
+
+<option>WhatsApp</option>
+
+<option>Telegram</option>
+
+<option>Google</option>
+
+<option>TikTok</option>
+
+<option>Facebook</option>
+
+<option>Instagram</option>
+
+<option>Discord</option>
+
+<option>Twitter (X)</option>
+
+<option>Snapchat</option>
+
+<option>Uber</option>
+
+</select>
+
+</div>
+
+</section>
+<!-- NOTICE -->
+
+<section class="px-5 mt-6">
+
+<div class="bg-yellow-500/10 border border-yellow-500 rounded-3xl p-6">
+
+<div class="flex items-start gap-4">
+
+<i class="fa-solid fa-circle-info text-yellow-400 text-2xl mt-1"></i>
+
+<div>
+
+<h3 class="text-xl font-bold text-yellow-400">
+Important Notice
+</h3>
+
+<p class="text-gray-300 mt-3 leading-7">
+
+Prices are not displayed because they change regularly.
+
+Tap the button below to contact the admin on WhatsApp and receive the current price before making payment.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- BUY BUTTON -->
+
+<section class="px-5 mt-6">
+
+<button
+onclick="buyNumber()"
+class="w-full bg-green-600 hover:bg-green-500 py-5 rounded-3xl text-2xl font-bold">
+
+<i class="fa-brands fa-whatsapp mr-2"></i>
+
+Buy on WhatsApp
+
+</button>
+
+</section>
+
+<script>
+
+function buyNumber(){
+
+const country=document.getElementById("country").value;
+
+const service=document.getElementById("service").value;
+
+const message=
+`Hello Admin,
+
+I want to buy a Virtual Number.
+
+Country: ${country}
+
+Service: ${service}
+
+Please send me the current price and payment details.`;
+
+window.open(
+`https://wa.me/2349117412352?text=${encodeURIComponent(message)}`,
+"_blank"
+);
+
+}
+
+</script>
+<!-- BOTTOM NAVIGATION -->
+
+<nav class="fixed bottom-0 left-0 w-full bg-[#111827] border-t border-gray-800">
+
+<div class="grid grid-cols-5 h-20">
+
+<a href="dashboard.html"
+class="flex flex-col items-center justify-center text-gray-400">
+
+<i class="fa-solid fa-house text-2xl"></i>
+
+<span class="text-xs mt-1">
+Home
+</span>
+
+</a>
+
+<a href="wallet.html"
+class="flex flex-col items-center justify-center text-gray-400">
+
+<i class="fa-solid fa-wallet text-2xl"></i>
+
+<span class="text-xs mt-1">
+Wallet
+</span>
+
+</a>
+
+<a href="services.html"
+class="flex flex-col items-center justify-center text-blue-500">
+
+<i class="fa-solid fa-layer-group text-2xl"></i>
+
+<span class="text-xs mt-1 font-semibold">
+Services
+</span>
+
+</a>
+
+<a href="support.html"
+class="flex flex-col items-center justify-center text-gray-400">
+
+<i class="fa-regular fa-circle-question text-2xl"></i>
+
+<span class="text-xs mt-1">
+Support
+</span>
+
+</a>
+
+<button
+onclick="toggleMenu()"
+class="flex flex-col items-center justify-center text-gray-400">
+
+<i class="fa-solid fa-bars text-2xl"></i>
+
+<span class="text-xs mt-1">
+Menu
+</span>
+
+</button>
+
+</div>
+
+</nav>
+
+</body>
+</html>
