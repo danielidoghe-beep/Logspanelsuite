@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin - Buy Updates</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+body{
+background:#0a1020;
+font-family:system-ui,sans-serif;
+color:white;
+}
+
+.card{
+background:#111827;
+border-radius:30px;
+padding:30px;
+}
+
+input,
+textarea{
+width:100%;
+background:#1f2937;
+padding:16px;
+border-radius:16px;
+outline:none;
+margin-top:8px;
+margin-bottom:20px;
+color:white;
+}
+
+button{
+transition:.25s;
+}
+
+button:hover{
+transform:translateY(-2px);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="max-w-5xl mx-auto p-6">
+
+<button
+onclick="history.back()"
+class="flex items-center gap-3 text-orange-500 text-xl mb-8">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+Go Back
+
+</button>
+
+<h1 class="text-5xl font-bold">
+
+Buy Updates
+
+</h1>
+
+<p class="text-gray-400 mt-2">
+
+Upload software updates for your users.
+
+</p>
+
+<div class="card mt-10">
+
+<h2 class="text-3xl font-bold mb-6">
+
+Add New Update
+
+</h2>
+
+<label>Update Title</label>
+
+<input
+id="title"
+type="text"
+placeholder="Enter update title">
+
+<label>Description</label>
+
+<textarea
+id="description"
+rows="5"
+placeholder="Enter update description"></textarea>
+
+<label>Image URL</label>
+
+<input
+id="image"
+type="text"
+placeholder="https://example.com/image.jpg">
+<label>Price (USD)</label>
+
+<input
+id="price"
+type="number"
+placeholder="10">
+
+<label>Hidden Update Link</label>
+
+<input
+id="downloadLink"
+type="text"
+placeholder="https://example.com/update-link">
+
+<button
+id="saveBtn"
+class="w-full bg-orange-600 hover:bg-orange-700 rounded-2xl py-4 text-xl font-bold mt-4">
+
+Save Update
+
+</button>
+
+<p
+id="message"
+class="text-green-400 text-center mt-5"></p>
+
+</div>
+
+<div class="card mt-8">
+
+<h2 class="text-3xl font-bold mb-6">
+
+Uploaded Updates
+
+</h2>
+
+<div
+id="updatesList"
+class="space-y-5">
+
+<p class="text-gray-400">
+
+No updates uploaded yet.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+
+import {
+getFirestore,
+collection,
+addDoc,
+serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+const firebaseConfig = {
+
+apiKey:"AIzaSyA53ORM49_ecEyokNloQquC2XfCYwuUFfI",
+authDomain:"logspanelsuite.firebaseapp.com",
+projectId:"logspanelsuite",
+storageBucket:"logspanelsuite.firebasestorage.app",
+messagingSenderId:"927578504424",
+appId:"1:927578504424:web:bc2d8e9ea4e805ca669d5d"
+
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+  const saveBtn = document.getElementById("saveBtn");
+const message = document.getElementById("message");
+
+saveBtn.onclick = async () => {
+
+const title = document.getElementById("title").value.trim();
+const description = document.getElementById("description").value.trim();
+const image = document.getElementById("image").value.trim();
+const price = document.getElementById("price").value.trim();
+const downloadLink = document.getElementById("downloadLink").value.trim();
+
+if(!title || !description || !image || !price || !downloadLink){
+
+message.className="text-red-400 text-center mt-5";
+message.textContent="Please fill in all fields.";
+
+return;
+
+}
+
+try{
+
+await addDoc(collection(db,"buyUpdates"),{
+
+title,
+description,
+image,
+price:Number(price),
+downloadLink,
+createdAt:serverTimestamp()
+
+});
+
+message.className="text-green-400 text-center mt-5";
+message.textContent="Update uploaded successfully.";
+
+document.getElementById("title").value="";
+document.getElementById("description").value="";
+document.getElementById("image").value="";
+document.getElementById("price").value="";
+document.getElementById("downloadLink").value="";
+
+}catch(error){
+
+message.className="text-red-400 text-center mt-5";
+message.textContent=error.message;
+
+}
+
+};
+
+</script>
+
+</body>
+</html>
+  
