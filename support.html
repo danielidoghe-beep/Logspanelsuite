@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Support Center | LogginSuite</title>
@@ -18,7 +21,7 @@ font-family:system-ui,sans-serif;
 }
 
 body{
-background:#0F172A;
+background:#0f172a;
 color:white;
 padding-bottom:90px;
 }
@@ -33,7 +36,7 @@ header{
 display:flex;
 justify-content:space-between;
 align-items:center;
-margin-bottom:35px;
+margin-bottom:40px;
 }
 
 .logo{
@@ -45,12 +48,12 @@ gap:12px;
 .logo-circle{
 width:42px;
 height:42px;
-border-radius:50%;
 background:#3b82f6;
+border-radius:50%;
 display:flex;
-align-items:center;
 justify-content:center;
-font-weight:bold;
+align-items:center;
+font-weight:700;
 font-size:20px;
 }
 
@@ -73,29 +76,424 @@ cursor:pointer;
 .hero h1{
 font-size:34px;
 font-weight:800;
-margin-bottom:10px;
+margin-bottom:12px;
 }
 
 .hero p{
 color:#94a3b8;
 font-size:16px;
 line-height:1.7;
-margin-bottom:30px;
+}
+.support-list{
+margin-top:35px;
+display:flex;
+flex-direction:column;
+gap:15px;
 }
 
+.support-card{
+background:#1e293b;
+border-radius:18px;
+padding:18px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+cursor:pointer;
+transition:.25s;
+}
+
+.support-card.active{
+background:#2563eb;
+}
+
+.left{
+display:flex;
+align-items:center;
+gap:16px;
+}
+
+.card-icon{
+width:52px;
+height:52px;
+background:#0f172a;
+border-radius:14px;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:22px;
+}
+
+.support-card.active .card-icon{
+background:rgba(255,255,255,.18);
+}
+
+.support-card h3{
+font-size:18px;
+margin-bottom:5px;
+}
+
+.support-card p{
+font-size:14px;
+color:#cbd5e1;
+}
+
+.support-card i.fa-chevron-right{
+font-size:18px;
+opacity:.8;
+}
+.section-title{
+margin-top:35px;
+margin-bottom:18px;
+font-size:24px;
+font-weight:800;
+}
+
+.quick-actions{
+display:flex;
+flex-direction:column;
+gap:16px;
+margin-bottom:40px;
+}
+
+.quick-card{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px;
+border-radius:18px;
+cursor:pointer;
+transition:.25s;
+}
+
+.quick-left{
+display:flex;
+align-items:center;
+gap:16px;
+}
+
+.quick-icon{
+width:52px;
+height:52px;
+border-radius:14px;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:22px;
+background:rgba(255,255,255,.18);
+}
+
+.live-chat{
+background:#15803d;
+}
+
+.telegram{
+background:#1d4ed8;
+}
+
+.quick-card h3{
+font-size:18px;
+margin-bottom:4px;
+}
+
+.quick-card p{
+font-size:14px;
+color:#dbeafe;
+}
+
+.quick-card:hover{
+transform:translateY(-2px);
+}
+/* Floating Telegram Button */
+
+.telegram-fab{
+
+position:fixed;
+
+right:22px;
+
+bottom:92px;
+
+width:60px;
+
+height:60px;
+
+border-radius:50%;
+
+background:#0ea5e9;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+color:white;
+
+font-size:30px;
+
+text-decoration:none;
+
+box-shadow:0 10px 30px rgba(0,0,0,.35);
+
+z-index:999;
+
+transition:.25s;
+
+}
+
+.telegram-fab:hover{
+
+transform:scale(1.08);
+
+}
+
+/* Bottom Navigation */
+
+.bottom-nav{
+
+position:fixed;
+
+bottom:0;
+
+left:0;
+
+width:100%;
+
+height:72px;
+
+background:#07111f;
+
+display:flex;
+
+justify-content:space-around;
+
+align-items:center;
+
+border-top:1px solid rgba(255,255,255,.08);
+
+z-index:999;
+
+}
+
+.nav-btn{
+
+flex:1;
+
+height:100%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+color:#7b8794;
+
+text-decoration:none;
+
+font-size:24px;
+
+transition:.25s;
+
+}
+
+.nav-btn.active{
+
+color:#2f8cff;
+
+}
+
+.nav-btn.active i{
+
+text-shadow:0 0 10px rgba(47,140,255,.45);
+
+}
+
+.nav-btn:active{
+
+transform:scale(.92);
+
+}
+.doc-banner{
+
+background:#6d4cff;
+
+border-radius:18px;
+
+padding:20px;
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+margin-bottom:25px;
+
+}
+
+.doc-banner i{
+
+font-size:28px;
+
+}
+
+.search-box{
+
+margin:25px 0;
+
+background:#1e293b;
+
+border-radius:18px;
+
+padding:16px;
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+}
+
+.search-box input{
+
+flex:1;
+
+background:none;
+
+border:none;
+
+outline:none;
+
+color:white;
+
+font-size:16px;
+
+}
+
+.search-box input::placeholder{
+
+color:#94a3b8;
+
+}
+
+.faq-item{
+
+background:#1e293b;
+
+border-radius:18px;
+
+margin-bottom:15px;
+
+overflow:hidden;
+
+}
+
+.faq-question{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:18px;
+
+cursor:pointer;
+
+font-weight:600;
+
+}
+
+.faq-answer{
+
+display:none;
+
+padding:18px;
+
+padding-top:0;
+
+color:#94a3b8;
+
+line-height:1.7;
+
+}
+.article-card{
+
+background:#1e293b;
+
+border-radius:18px;
+
+padding:20px;
+
+margin-bottom:18px;
+
+}
+
+.article-tag{
+
+display:inline-block;
+
+background:#2563eb;
+
+padding:6px 12px;
+
+border-radius:999px;
+
+font-size:13px;
+
+font-weight:600;
+
+margin-bottom:15px;
+
+}
+
+.article-card h3{
+
+font-size:20px;
+
+margin-bottom:10px;
+
+}
+
+.article-card p{
+
+color:#94a3b8;
+
+margin-bottom:15px;
+
+}
+
+.article-card a{
+
+color:#3b82f6;
+
+text-decoration:none;
+
+font-weight:700;
+
+}
 </style>
 
 </head>
 
 <body>
 
-<div class="container">
+<div id="supportPage" class="container">
 
 <header>
 
 <div class="logo">
-<div class="logo-circle">L</div>
-<div class="logo-text">LogginSuite</div>
+
+<div class="logo-circle">
+L
+</div>
+
+<div class="logo-text">
+LogginSuite
+</div>
+
 </div>
 
 <button class="menu-btn">
@@ -113,132 +511,171 @@ Get help, contact support, and learn more about our services.
 </p>
 
 </section>
-<!-- Support Menu -->
+<div class="support-list">
 
-<div class="support-menu">
+<div class="support-card active" onclick="openHelpCenter()">
 
-<div class="support-card active" onclick="location.href='help-center.html'">
 <div class="left">
-<div class="icon blue">
+
+<div class="card-icon">
 <i class="fa-regular fa-circle-question"></i>
 </div>
 
 <div>
+
 <h3>Help Center</h3>
+
 <p>Browse documentation and FAQs</p>
-</div>
+
 </div>
 
-<i class="fa-solid fa-chevron-right arrow"></i>
+</div>
+
+<i class="fa-solid fa-chevron-right"></i>
+
 </div>
 
 
 <div class="support-card">
+
 <div class="left">
-<div class="icon">
+
+<div class="card-icon">
 <i class="fa-regular fa-message"></i>
 </div>
 
 <div>
+
 <h3>Contact Us</h3>
+
 <p>Reach our support team</p>
-</div>
+
 </div>
 
-<i class="fa-solid fa-chevron-right arrow"></i>
+</div>
+
+<i class="fa-solid fa-chevron-right"></i>
+
 </div>
 
 
 <div class="support-card">
+
 <div class="left">
-<div class="icon">
+
+<div class="card-icon">
 <i class="fa-solid fa-ticket"></i>
 </div>
 
 <div>
+
 <h3>My Tickets</h3>
-<p>Track support requests</p>
-</div>
+
+<p>Track your support requests</p>
+
 </div>
 
-<i class="fa-solid fa-chevron-right arrow"></i>
+</div>
+
+<i class="fa-solid fa-chevron-right"></i>
+
 </div>
 
 
 <div class="support-card">
+
 <div class="left">
-<div class="icon">
+
+<div class="card-icon">
 <i class="fa-solid fa-book-open"></i>
 </div>
 
 <div>
+
 <h3>Tutorials</h3>
-<p>Learn step by step</p>
-</div>
+
+<p>Learn how to use our services</p>
+
 </div>
 
-<i class="fa-solid fa-chevron-right arrow"></i>
+</div>
+
+<i class="fa-solid fa-chevron-right"></i>
+
 </div>
 
 
 <div class="support-card">
+
 <div class="left">
-<div class="icon">
+
+<div class="card-icon">
 <i class="fa-solid fa-wave-square"></i>
 </div>
 
 <div>
+
 <h3>System Status</h3>
+
 <p>Check platform availability</p>
-</div>
-</div>
 
-<i class="fa-solid fa-chevron-right arrow"></i>
 </div>
 
 </div>
-<!-- Quick Actions -->
 
+<i class="fa-solid fa-chevron-right"></i>
+
+</div>
+
+</div>
 <h2 class="section-title">Quick Actions</h2>
 
 <div class="quick-actions">
 
-<div class="quick-card live-chat">
+    <div class="quick-card live-chat"
+onclick="window.open('https://wa.me/2349117412352?text=Hello%20LogginSuite%20Support,%20I%20need%20help.','_blank')">
 
-<div class="quick-icon">
-<i class="fa-regular fa-comments"></i>
+        <div class="quick-left">
+
+            <div class="quick-icon">
+                <i class="fa-regular fa-comments"></i>
+            </div>
+
+            <div>
+                <h3>Start Live Chat</h3>
+                <p>Average response time under 5 minutes</p>
+            </div>
+
+        </div>
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+    </div>
+
+    <div class="quick-card telegram">
+
+        <div class="quick-left">
+
+            <div class="quick-icon">
+                <i class="fa-brands fa-telegram"></i>
+            </div>
+
+            <div>
+                <h3>Telegram Channel</h3>
+                <p>News, updates and announcements</p>
+            </div>
+
+        </div>
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+    </div>
+
 </div>
+<!-- Floating Telegram Button -->
 
-<div class="quick-text">
-<h3>Start Live Chat</h3>
-<p>Average response time: under 5 minutes</p>
-</div>
-
-<i class="fa-solid fa-arrow-right"></i>
-
-</div>
-
-
-<div class="quick-card telegram">
-
-<div class="quick-icon">
+<a href="https://t.me/+Xbt-w6-TwsozYjY0" class="telegram-fab">
 <i class="fa-brands fa-telegram"></i>
-</div>
-
-<div class="quick-text">
-<h3>Telegram Channel</h3>
-<p>News, updates and announcements</p>
-</div>
-
-<i class="fa-solid fa-arrow-right"></i>
-
-</div>
-
-</div>
-  <!-- Floating Telegram Button -->
-
-<a href="https://t.me/" class="telegram-fab" target="_blank">
-    <i class="fa-brands fa-telegram"></i>
 </a>
 
 <!-- Bottom Navigation -->
@@ -266,196 +703,203 @@ Get help, contact support, and learn more about our services.
 </a>
 
 </nav>
-  .support-menu{
-display:flex;
-flex-direction:column;
-gap:15px;
-margin-bottom:35px;
+<div id="helpCenterPage" style="display:none;">
+
+<div class="container">
+
+<button class="back-btn" onclick="showSupportPage()">
+← Back
+</button>
+
+<div class="doc-banner">
+
+<i class="fa-solid fa-book"></i>
+
+<div>
+
+<h3>Documentation</h3>
+
+<p>Browse guides and documentation</p>
+
+</div>
+
+</div>
+
+<div class="hero">
+
+<h1>Help Center</h1>
+
+<p>
+Find answers to common questions.
+</p>
+
+</div>
+
+<div class="search-box">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+<input
+type="text"
+placeholder="Search for help articles..."
+>
+
+</div>
+
+<h2 class="section-title">
+Frequently Asked Questions
+</h2>
+
+<div class="faq-item">
+
+<div class="faq-question">
+
+<span>
+How do I add funds to my wallet?
+</span>
+
+<i class="fa-solid fa-chevron-down"></i>
+
+</div>
+
+<div class="faq-answer">
+
+You can fund your wallet securely using the Add Funds button inside your wallet.
+
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<div class="faq-question">
+
+<span>
+How do I purchase a virtual number?
+</span>
+
+<i class="fa-solid fa-chevron-down"></i>
+
+</div>
+
+<div class="faq-answer">
+
+Go to Services → Virtual Numbers and complete your purchase.
+
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<div class="faq-question">
+
+<span>
+What is the difference between SMS and OTP services?
+</span>
+
+<i class="fa-solid fa-chevron-down"></i>
+
+</div>
+
+<div class="faq-answer">
+
+SMS Numbers receive ordinary messages while OTP Numbers are optimized for verification codes.
+
+</div>
+
+</div>
+
+</div>
+  <h2 class="section-title">
+Popular Articles
+</h2>
+
+<div class="article-card">
+
+<div class="article-tag">
+SMS
+</div>
+
+<h3>Troubleshooting SMS Delivery Issues</h3>
+
+<p>5 min read</p>
+
+<a href="#">Read more →</a>
+
+</div>
+
+<div class="article-card">
+
+<div class="article-tag">
+Setup
+</div>
+
+<h3>Virtual Number Setup</h3>
+
+<p>6 min read</p>
+
+<a href="#">Read more →</a>
+
+</div>
+
+<div class="article-card">
+
+<div class="article-tag">
+Billing
+</div>
+
+<h3>Billing and Payment FAQ</h3>
+
+<p>4 min read</p>
+
+<a href="#">Read more →</a>
+
+</div>
+const faqQuestions = document.querySelectorAll(".faq-question");
+
+faqQuestions.forEach(question => {
+
+    question.addEventListener("click", () => {
+
+        const answer = question.nextElementSibling;
+
+        const icon = question.querySelector("i");
+
+        if (answer.style.display === "block") {
+
+            answer.style.display = "none";
+
+            icon.classList.remove("fa-chevron-up");
+
+            icon.classList.add("fa-chevron-down");
+
+        } else {
+
+            answer.style.display = "block";
+
+            icon.classList.remove("fa-chevron-down");
+
+            icon.classList.add("fa-chevron-up");
+
+        }
+
+    });
+
+});
+function openHelpCenter(){
+
+document.getElementById("supportPage").style.display="none";
+
+document.getElementById("helpCenterPage").style.display="block";
+
 }
 
-.support-card{
-background:#1e293b;
-border-radius:18px;
-padding:18px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-cursor:pointer;
-transition:.25s;
-}
+function showSupportPage(){
 
-.support-card:hover{
-background:#263449;
-}
+document.getElementById("helpCenterPage").style.display="none";
 
-.support-card.active{
-background:#2563eb;
-}
+document.getElementById("supportPage").style.display="block";
 
-.left{
-display:flex;
-align-items:center;
-gap:16px;
 }
-
-.icon{
-width:50px;
-height:50px;
-border-radius:14px;
-background:#0f172a;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:22px;
-}
-
-.support-card.active .icon{
-background:rgba(255,255,255,.18);
-}
-
-.icon.blue{
-background:rgba(255,255,255,.18);
-}
-
-.support-card h3{
-font-size:18px;
-margin-bottom:4px;
-}
-
-.support-card p{
-color:#cbd5e1;
-font-size:14px;
-}
-
-.arrow{
-font-size:18px;
-opacity:.8;
-}
-  .section-title{
-font-size:24px;
-font-weight:800;
-margin-bottom:18px;
-}
-
-.quick-actions{
-display:flex;
-flex-direction:column;
-gap:18px;
-margin-bottom:40px;
-}
-
-.quick-card{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:22px;
-border-radius:20px;
-cursor:pointer;
-transition:.25s;
-}
-
-.quick-card:hover{
-transform:translateY(-2px);
-}
-
-.live-chat{
-background:linear-gradient(135deg,#16a34a,#15803d);
-}
-
-.telegram{
-background:linear-gradient(135deg,#2563eb,#1d4ed8);
-}
-
-.quick-icon{
-width:55px;
-height:55px;
-border-radius:15px;
-background:rgba(255,255,255,.15);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:24px;
-margin-right:16px;
-}
-
-.quick-text{
-flex:1;
-}
-
-.quick-text h3{
-font-size:18px;
-margin-bottom:6px;
-}
-
-.quick-text p{
-font-size:14px;
-color:rgba(255,255,255,.85);
-}
-
-.quick-card i:last-child{
-font-size:20px;
-}
-  /* Floating Telegram Button */
-
-.telegram-fab{
-position:fixed;
-right:22px;
-bottom:95px;
-width:62px;
-height:62px;
-background:#0ea5e9;
-border-radius:50%;
-display:flex;
-justify-content:center;
-align-items:center;
-text-decoration:none;
-color:white;
-font-size:30px;
-box-shadow:0 10px 25px rgba(0,0,0,.35);
-z-index:999;
-transition:.25s;
-}
-
-.telegram-fab:hover{
-transform:scale(1.08);
-}
-
-/* Bottom Navigation */
-
-.bottom-nav{
-position:fixed;
-bottom:0;
-left:0;
-width:100%;
-height:72px;
-background:#07111f;
-display:flex;
-justify-content:space-around;
-align-items:center;
-border-top:1px solid rgba(255,255,255,.08);
-z-index:999;
-}
-
-.nav-btn{
-flex:1;
-height:100%;
-display:flex;
-justify-content:center;
-align-items:center;
-text-decoration:none;
-color:#7c8798;
-font-size:23px;
-transition:.25s;
-}
-
-.nav-btn.active{
-color:#2f8cff;
-}
-
-.nav-btn.active i{
-text-shadow:0 0 10px rgba(47,140,255,.45);
-}
-
-.nav-btn:active{
-transform:scale(.92);
-}
+</div>
