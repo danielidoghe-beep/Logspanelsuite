@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Buy Updates - LogsPanelSuite</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+body{
+background:#090f1f;
+font-family:system-ui,sans-serif;
+color:white;
+}
+
+.update-card{
+background:#151c2b;
+border:1px solid rgba(255,255,255,.08);
+border-radius:28px;
+overflow:hidden;
+transition:.25s;
+}
+
+.update-card:hover{
+border-color:#f97316;
+transform:translateY(-2px);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="max-w-md mx-auto px-5 py-6">
+
+<button
+onclick="history.back()"
+class="flex items-center gap-3 text-orange-500 text-xl font-semibold mb-8">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+<span>Go Back</span>
+
+</button>
+
+<h1 class="text-5xl font-extrabold">
+
+Buy Updates
+
+</h1>
+
+<p class="text-gray-400 text-lg mt-3 mb-8">
+
+Browse available updates.
+
+</p>
+
+<div
+id="updatesContainer"
+class="space-y-6">
+
+<div class="text-center py-20">
+
+<i class="fa-solid fa-box-open text-7xl text-orange-500"></i>
+
+<h2 class="text-3xl font-bold mt-6">
+
+No Updates Available
+
+</h2>
+
+<p class="text-gray-400 mt-3">
+
+There are currently no updates available.<br>
+Please check back later.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+
+import {
+getFirestore,
+collection,
+getDocs,
+query,
+orderBy
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+const firebaseConfig = {
+
+apiKey:"AIzaSyA53ORM49_ecEyokNloQquC2XfCYwuUFfI",
+authDomain:"logspanelsuite.firebaseapp.com",
+projectId:"logspanelsuite",
+storageBucket:"logspanelsuite.firebasestorage.app",
+messagingSenderId:"927578504424",
+appId:"1:927578504424:web:bc2d8e9ea4e805ca669d5d"
+
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const updatesContainer = document.getElementById("updatesContainer");
+
+async function loadUpdates(){
+
+updatesContainer.innerHTML = "";
+
+const q = query(
+collection(db,"buyUpdates"),
+orderBy("createdAt","desc")
+);
+
+const snapshot = await getDocs(q);
+
+if(snapshot.empty){
+
+updatesContainer.innerHTML = `
+
+<div class="text-center py-20">
+
+<i class="fa-solid fa-box-open text-7xl text-orange-500"></i>
+
+<h2 class="text-3xl font-bold mt-6">
+
+No Updates Available
+
+</h2>
+
+<p class="text-gray-400 mt-3">
+
+There are currently no updates available.<br>
+Please check back later.
+
+</p>
+
+</div>
+
+`;
+
+return;
+
+}
+
+snapshot.forEach((doc)=>{
+
+const update = doc.data();
+
+updatesContainer.innerHTML += `
+
+<div class="update-card">
+
+<img
+src="${update.image}"
+class="w-full h-56 object-cover">
+
+<div class="p-6">
+
+<h2 class="text-3xl font-bold">
+
+${update.title}
+
+</h2>
+
+<p class="text-gray-400 mt-3">
+
+${update.description}
+
+</p>
+
+<div class="flex items-center justify-between mt-6">
+
+<p class="text-orange-500 text-2xl font-bold">
+
+$${update.price}
+
+</p>
+
+<button
+class="bg-orange-600 hover:bg-orange-700 px-6 py-3 rounded-xl font-bold">
+
+Buy Now
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+loadUpdates();
+
+</script>
+
+</body>
+</html>
