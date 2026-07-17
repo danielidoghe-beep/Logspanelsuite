@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Support Center | LogginSuite</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:system-ui,sans-serif;
+}
+
+body{
+background:#0F172A;
+color:white;
+padding-bottom:90px;
+}
+
+.container{
+max-width:480px;
+margin:auto;
+padding:20px;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:35px;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.logo-circle{
+width:42px;
+height:42px;
+border-radius:50%;
+background:#3b82f6;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:bold;
+font-size:20px;
+}
+
+.logo-text{
+font-size:22px;
+font-weight:700;
+}
+
+.menu-btn{
+width:42px;
+height:42px;
+background:#1e293b;
+border:none;
+border-radius:12px;
+color:white;
+font-size:22px;
+cursor:pointer;
+}
+
+.hero h1{
+font-size:34px;
+font-weight:800;
+margin-bottom:10px;
+}
+
+.hero p{
+color:#94a3b8;
+font-size:16px;
+line-height:1.7;
+margin-bottom:30px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+
+<div class="logo">
+<div class="logo-circle">L</div>
+<div class="logo-text">LogginSuite</div>
+</div>
+
+<button class="menu-btn">
+☰
+</button>
+
+</header>
+
+<section class="hero">
+
+<h1>Support Center</h1>
+
+<p>
+Get help, contact support, and learn more about our services.
+</p>
+
+</section>
+<!-- Support Menu -->
+
+<div class="support-menu">
+
+<div class="support-card active" onclick="location.href='help-center.html'">
+<div class="left">
+<div class="icon blue">
+<i class="fa-regular fa-circle-question"></i>
+</div>
+
+<div>
+<h3>Help Center</h3>
+<p>Browse documentation and FAQs</p>
+</div>
+</div>
+
+<i class="fa-solid fa-chevron-right arrow"></i>
+</div>
+
+
+<div class="support-card">
+<div class="left">
+<div class="icon">
+<i class="fa-regular fa-message"></i>
+</div>
+
+<div>
+<h3>Contact Us</h3>
+<p>Reach our support team</p>
+</div>
+</div>
+
+<i class="fa-solid fa-chevron-right arrow"></i>
+</div>
+
+
+<div class="support-card">
+<div class="left">
+<div class="icon">
+<i class="fa-solid fa-ticket"></i>
+</div>
+
+<div>
+<h3>My Tickets</h3>
+<p>Track support requests</p>
+</div>
+</div>
+
+<i class="fa-solid fa-chevron-right arrow"></i>
+</div>
+
+
+<div class="support-card">
+<div class="left">
+<div class="icon">
+<i class="fa-solid fa-book-open"></i>
+</div>
+
+<div>
+<h3>Tutorials</h3>
+<p>Learn step by step</p>
+</div>
+</div>
+
+<i class="fa-solid fa-chevron-right arrow"></i>
+</div>
+
+
+<div class="support-card">
+<div class="left">
+<div class="icon">
+<i class="fa-solid fa-wave-square"></i>
+</div>
+
+<div>
+<h3>System Status</h3>
+<p>Check platform availability</p>
+</div>
+</div>
+
+<i class="fa-solid fa-chevron-right arrow"></i>
+</div>
+
+</div>
+<!-- Quick Actions -->
+
+<h2 class="section-title">Quick Actions</h2>
+
+<div class="quick-actions">
+
+<div class="quick-card live-chat">
+
+<div class="quick-icon">
+<i class="fa-regular fa-comments"></i>
+</div>
+
+<div class="quick-text">
+<h3>Start Live Chat</h3>
+<p>Average response time: under 5 minutes</p>
+</div>
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</div>
+
+
+<div class="quick-card telegram">
+
+<div class="quick-icon">
+<i class="fa-brands fa-telegram"></i>
+</div>
+
+<div class="quick-text">
+<h3>Telegram Channel</h3>
+<p>News, updates and announcements</p>
+</div>
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</div>
+
+</div>
+  <!-- Floating Telegram Button -->
+
+<a href="https://t.me/" class="telegram-fab" target="_blank">
+    <i class="fa-brands fa-telegram"></i>
+</a>
+
+<!-- Bottom Navigation -->
+
+<nav class="bottom-nav">
+
+<a href="index.html" class="nav-btn">
+<i class="fa-solid fa-house"></i>
+</a>
+
+<a href="wallet.html" class="nav-btn">
+<i class="fa-solid fa-wallet"></i>
+</a>
+
+<a href="services.html" class="nav-btn">
+<i class="fa-solid fa-layer-group"></i>
+</a>
+
+<a href="support.html" class="nav-btn active">
+<i class="fa-regular fa-circle-question"></i>
+</a>
+
+<a href="#" class="nav-btn">
+<i class="fa-solid fa-bars"></i>
+</a>
+
+</nav>
+  .support-menu{
+display:flex;
+flex-direction:column;
+gap:15px;
+margin-bottom:35px;
+}
+
+.support-card{
+background:#1e293b;
+border-radius:18px;
+padding:18px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+cursor:pointer;
+transition:.25s;
+}
+
+.support-card:hover{
+background:#263449;
+}
+
+.support-card.active{
+background:#2563eb;
+}
+
+.left{
+display:flex;
+align-items:center;
+gap:16px;
+}
+
+.icon{
+width:50px;
+height:50px;
+border-radius:14px;
+background:#0f172a;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:22px;
+}
+
+.support-card.active .icon{
+background:rgba(255,255,255,.18);
+}
+
+.icon.blue{
+background:rgba(255,255,255,.18);
+}
+
+.support-card h3{
+font-size:18px;
+margin-bottom:4px;
+}
+
+.support-card p{
+color:#cbd5e1;
+font-size:14px;
+}
+
+.arrow{
+font-size:18px;
+opacity:.8;
+}
+  .section-title{
+font-size:24px;
+font-weight:800;
+margin-bottom:18px;
+}
+
+.quick-actions{
+display:flex;
+flex-direction:column;
+gap:18px;
+margin-bottom:40px;
+}
+
+.quick-card{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:22px;
+border-radius:20px;
+cursor:pointer;
+transition:.25s;
+}
+
+.quick-card:hover{
+transform:translateY(-2px);
+}
+
+.live-chat{
+background:linear-gradient(135deg,#16a34a,#15803d);
+}
+
+.telegram{
+background:linear-gradient(135deg,#2563eb,#1d4ed8);
+}
+
+.quick-icon{
+width:55px;
+height:55px;
+border-radius:15px;
+background:rgba(255,255,255,.15);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:24px;
+margin-right:16px;
+}
+
+.quick-text{
+flex:1;
+}
+
+.quick-text h3{
+font-size:18px;
+margin-bottom:6px;
+}
+
+.quick-text p{
+font-size:14px;
+color:rgba(255,255,255,.85);
+}
+
+.quick-card i:last-child{
+font-size:20px;
+}
+  /* Floating Telegram Button */
+
+.telegram-fab{
+position:fixed;
+right:22px;
+bottom:95px;
+width:62px;
+height:62px;
+background:#0ea5e9;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+text-decoration:none;
+color:white;
+font-size:30px;
+box-shadow:0 10px 25px rgba(0,0,0,.35);
+z-index:999;
+transition:.25s;
+}
+
+.telegram-fab:hover{
+transform:scale(1.08);
+}
+
+/* Bottom Navigation */
+
+.bottom-nav{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+height:72px;
+background:#07111f;
+display:flex;
+justify-content:space-around;
+align-items:center;
+border-top:1px solid rgba(255,255,255,.08);
+z-index:999;
+}
+
+.nav-btn{
+flex:1;
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+text-decoration:none;
+color:#7c8798;
+font-size:23px;
+transition:.25s;
+}
+
+.nav-btn.active{
+color:#2f8cff;
+}
+
+.nav-btn.active i{
+text-shadow:0 0 10px rgba(47,140,255,.45);
+}
+
+.nav-btn:active{
+transform:scale(.92);
+}
